@@ -7,7 +7,7 @@
 	<body>
 		<label>Pseudo: <input type="text" name="pseudo"/></label><br/>
 		<label>Prénom: <input type="text" name="pseudo"/></label><br/>
-		<label>NomPUPUPUsh2: <input type="text" name="pseudo"/></label><br/>
+		<label>NomPUPUPUsh3: <input type="text" name="pseudo"/></label><br/>
 		<label>Mot de passe: <input type="password" name="pass1"/></label><br/>
 		<label>Confirmation du mot de passe: <input type="password" name="pass2"/></label><br/>
 		<label>Adresse e-mail: <input type="text" name="email"/></label><br/>
