@@ -183,3 +183,6 @@ Contains: Could not delete: C:\Users\Dardaxe\.babun\cygwin\home\Dardaxe\rendu\JW
 !MESSAGE Save operation warnings.
 !SUBENTRY 1 org.eclipse.core.resources 2 234 2015-12-12 14:53:07.574
 !MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.wst.server.discovery 1 0 2015-12-12 15:09:57.168
+!MESSAGE cacheFile=file:/C:/Users/Dardaxe/.babun/cygwin/home/Dardaxe/rendu/JWeb/.metadata/.plugins/org.eclipse.wst.server.discovery/serverAdapterSitesDetails.xml
