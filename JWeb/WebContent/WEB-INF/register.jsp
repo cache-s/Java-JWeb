@@ -9,7 +9,7 @@
         <link type="text/css" rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <form method="post" action="Register">
+        <form method="post" action="register">
             <fieldset>
                 <legend>Register</legend>
                 <p>Register here</p>
@@ -70,10 +70,8 @@
 				</datalist>
                 <br />
 
-                <input type="submit" value="Register" />
+                <input type="submit" value="register" />
                 <br />
-                
-                <p class="${empty errors ? 'succes' : 'error'}">${resultat}</p>
             </fieldset>
         </form>
     </body>
