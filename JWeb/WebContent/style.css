@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+header
+{
+	background-color: red;
+	width: 				100px;
+}
+
+.navigationAbove
+{
+	background-color:	green;
+	display: 			inline-block;
+	width: 				100%;
+}
+
+.navigationBellow
+{
+	background-color:	blue;
+	display: 			inline-block;
+	width: 				100%;
+}
+
+form .error {
+	color:	#900;
+}
