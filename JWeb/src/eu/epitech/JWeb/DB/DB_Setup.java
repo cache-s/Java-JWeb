@@ -31,8 +31,8 @@ public class DB_Setup
 
 			System.out.println("Database creation and initialization ...");
 			statement.executeUpdate("CREATE DATABASE JWEB");
-			statement.executeUpdate("CREATE TABLE JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), mail VARCHAR(320), adress NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), phone VARCHAR(15), gender VARCHAR(1))");
-			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, mail, adress, state, city, phone, gender) VALUES ('John', 'Doe', 'JohnDoe', MD5('password'), 'john@doe.com', '4 rue des petunias', 'Nantes', 'France', '060606', 'M')");
+			statement.executeUpdate("CREATE TABLE JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), mail VARCHAR(320), address NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), phone VARCHAR(15), gender VARCHAR(32))");
+			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, mail, address, state, city, phone, gender) VALUES ('John', 'Doe', 'JohnDoe', MD5('password'), 'john@doe.com', '4 rue des petunias', 'Nantes', 'France', '060606', 'Sith')");
 			System.out.println("Database succesfully created !");
 		}
 		catch (SQLException e)
