@@ -7,11 +7,11 @@
 	</head>
 	<body>
 		<jsp:include page="header.jsp"/>
-	
+
 		<div class="main">
 			<p>Index main content</p>
 		</div>
-	
+
 		<jsp:include page="footer.jsp"/>
 	</body>
 </html>

@@ -9,7 +9,7 @@
 				<nav class="user">
 					<a href="http://localhost:8080/JWeb/register" title="Create account">Register</a>
 					<span>·</span>
-					<a href="http://localhost:8080/JWeb/login" title="Connect to your account">Connect</a>
+					<a href="http://localhost:8080/JWeb/connect" title="Connect to your account">Connect</a>
 					<span>·</span>
 					<a href="http://localhost:8080/JWeb/newsletter" title="Subscribe to the newsletter">Newsletter</a>
 				</nav>
@@ -25,7 +25,7 @@
 						<a href="http://localhost:8080/JWeb/shop" title="Buy lightsabers">Shop</a>
 					</li>
 					<li>
-						<a href="http://localhost:8080/JWeb/account" title="Manage your account" >Account</a>
+						<a href="http://localhost:8080/JWeb/profile" title="Manage your account" >Profile</a>
 					</li>
 					<li>
 						<a href="http://localhost:8080/JWeb/aboutus" title="Learn more about us" >About us</a>
