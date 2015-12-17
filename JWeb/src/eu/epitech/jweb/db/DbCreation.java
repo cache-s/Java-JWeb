@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.DB;
+package eu.epitech.jweb.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DB_Setup
+public class DbCreation
 {
 	static Connection connection = null;
 	static String URL = "jdbc:mysql://localhost:3306/";

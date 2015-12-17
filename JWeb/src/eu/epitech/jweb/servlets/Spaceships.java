@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.servlets;
+package eu.epitech.jweb.servlets;
 
 import java.io.IOException;
 

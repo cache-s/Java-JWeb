@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.servlets;
+package eu.epitech.jweb.servlets;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Shop extends HttpServlet {
-	public static final String VIEW = "/WEB-INF/shop.jsp";
+public class Newsletter extends HttpServlet {
+	public static final String VIEW = "/WEB-INF/newsletter.jsp";
 	
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
 	{

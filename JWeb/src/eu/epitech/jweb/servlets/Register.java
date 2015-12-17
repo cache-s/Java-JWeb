@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.servlets;
+package eu.epitech.jweb.servlets;
 
 import java.io.IOException;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import eu.epitech.JWeb.beans.User;
-import eu.epitech.JWeb.forms.Registration;
+import eu.epitech.jweb.beans.User;
+import eu.epitech.jweb.form.Registration;
 
 public class Register extends HttpServlet {
 	public static final String VIEW = "/WEB-INF/register.jsp";

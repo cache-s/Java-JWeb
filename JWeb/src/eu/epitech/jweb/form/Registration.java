@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.forms;
+package eu.epitech.jweb.form;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import eu.epitech.JWeb.beans.User;
+import eu.epitech.jweb.beans.User;
+import eu.epitech.jweb.db.DatabaseAction;;
 
 public class Registration
 {
@@ -27,6 +28,8 @@ public class Registration
 	
 	private 				String 	result;
 	private Map <String, String> 	errors			= new HashMap<String, String>();
+	private DatabaseAction 			db 				= new DatabaseAction();
+
 	public String getResult() {
 		return result;
 	}
@@ -88,7 +91,7 @@ public class Registration
 		System.out.println("City = " + city);
 		newUser.setCity(city);
 		newUser.setGender(gender);
-		if (errors.isEmpty() && addToDatabase(newUser) == true)
+		if (errors.isEmpty() && db.addUser(newUser) == true)
 			result = "Register success !";
 		else
 			result = "Register failure.";
@@ -144,44 +147,5 @@ public class Registration
 	    } else {
 	        return ret.trim();
 	    }
-	}
-	
-	private boolean addToDatabase(User user)
-	{
-		Connection connection = null;
-		String URL = "jdbc:mysql://localhost:3306/JWeb";
-		String USER = "root";
-		String PASS = "root";
-
-		try
-		{
-			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection(URL, USER, PASS);
-			Statement statement = connection.createStatement();
-			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users (firstName, lastName, userName, pass, mail, address, state, city, gender) VALUES (?, ?, ?, MD5(?), ?, ?, ?, ?, ?)");
-			statement.executeUpdate("INSERT INTO users (firstName, lastName, userName, pass, mail, address, state, city, gender) VALUES ('"+user.getFirstName()+"', '"+user.getLastName()+"', '"+user.getUserName()+"', MD5('"+user.getPassword()+"'), '"+user.getEmail()+"', '"+user.getAddress()+"', '"+user.getState()+"', '"+user.getCity()+"', '"+user.getGender()+"')");
-			preparedStatement.setString(1, user.getFirstName());			
-		}
-		catch (SQLException e) {
-			System.err.println(e.getMessage());
-			return false;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		finally
-		{
-			try
-		{
-				if (connection != null)
-					connection.close();
-			}
-			catch (SQLException e)
-			{
-				System.err.println(e);
-				return false;
-			}
-		}
-		return true;
 	}
 }

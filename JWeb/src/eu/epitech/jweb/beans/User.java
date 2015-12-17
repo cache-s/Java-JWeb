@@ -1,4 +1,4 @@
-package eu.epitech.JWeb.beans;
+package eu.epitech.jweb.beans;
 
 public class User
 {
