@@ -8,11 +8,11 @@
 		<link type="text/css" rel="stylesheet" href="<c:url value="/ressources/css/style.css"/>" />
 	</head>
 	<body>
-		<jsp:include page="<c:url value="/WEB-INF/header.jsp"/>"/>
+		<jsp:include page="../WEB-INF/header.jsp"/>
 	
 		<div class="main">
 			<p>Vous êtes connecté(e) avec l'adresse ${sessionScope.userSession.email}, vous avez bien accès à l'espace restreint.</p>
 		</div>
-		<jsp:include page="<c:url value="/WEB-INF/footer.jsp"/>"/>
+	<jsp:include page="../WEB-INF/footer.jsp"/>
 	</body>
 </html>
