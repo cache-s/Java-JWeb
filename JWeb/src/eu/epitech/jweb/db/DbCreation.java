@@ -30,9 +30,9 @@ public class DbCreation
 			System.out.println("Statement created !");
 
 			System.out.println("Database creation and initialization ...");
-			statement.executeUpdate("CREATE DATABASE JWEB");
-			statement.executeUpdate("CREATE TABLE JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), mail VARCHAR(320), address NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), phone VARCHAR(15), gender VARCHAR(32))");
-			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, mail, address, state, city, phone, gender) VALUES ('John', 'Doe', 'JohnDoe', MD5('password'), 'john@doe.com', '4 rue des petunias', 'Nantes', 'France', '060606', 'Sith')");
+			statement.executeUpdate("CREATE DATABASE IF NOT EXISTS JWEB");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), email VARCHAR(320), address NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), phone VARCHAR(15), gender VARCHAR(32), admin BOOLEAN, newsletter BOOLEAN)");
+			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, email, address, state, city, phone, gender, admin, newsletter) VALUES ('Admin', 'Admin', 'Admin', MD5('Admin'), 'jordan.chazottes@gmail.com', 'Admin', 'Admin', 'Admin', '4242424242', 'admin', '1', '1')");
 			System.out.println("Database succesfully created !");
 		}
 		catch (SQLException e)

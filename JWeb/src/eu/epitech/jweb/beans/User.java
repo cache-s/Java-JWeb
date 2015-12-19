@@ -12,9 +12,36 @@ public class User
 	private String	state;
 	private String	city;
 	private String	gender;
+	private boolean admin;
+	private boolean newsletter;
 	
+	public User()
+	{
+		
+	}
+
+	public User(int id, String firstName, String lastName, String email, String userName, String password, String adress, String state, String city, String gender, boolean admin, boolean newsletter)
+	{
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userName = userName;
+		this.password = password;
+		this.address = adress;
+		this.state = state;
+		this.city = city;
+		this.gender = gender;
+		this.setAdmin(admin);
+		this.setNewsletter(newsletter);
+	}
+
 	public int		getId()	{
 		return id;
+	}
+	
+	public void		setId(int id) {
+		this.id = id;
 	}
 	
 	public String getFirstName() {
@@ -78,5 +105,21 @@ public class User
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public boolean isNewsletter() {
+		return newsletter;
+	}
+
+	public void setNewsletter(boolean newsletter) {
+		this.newsletter = newsletter;
 	}
 }

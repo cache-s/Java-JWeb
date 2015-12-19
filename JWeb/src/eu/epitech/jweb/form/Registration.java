@@ -1,10 +1,5 @@
 package eu.epitech.jweb.form;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +20,7 @@ public class Registration
 	private static final 	String	STATE_INPUT		= "state";
 	private static final	String	CITY_INPUT		= "city";
 	private static final	String	GENDER_INPUT	= "gender";
+	private static final	String	DATABASE_INPUT	= "database";
 	
 	private 				String 	result;
 	private Map <String, String> 	errors			= new HashMap<String, String>();
@@ -88,14 +84,25 @@ public class Registration
 		newUser.setPassword(password);
 		newUser.setAddress(address);
 		newUser.setState(state);
-		System.out.println("City = " + city);
 		newUser.setCity(city);
 		newUser.setGender(gender);
-		if (errors.isEmpty() && db.addUser(newUser) == true)
+		try {
+			checkDB(newUser);
+		} catch (Exception e) {
+			errors.put(DATABASE_INPUT, e.getMessage());
+		}
+			
+		if (errors.isEmpty())
 			result = "Register success !";
 		else
 			result = "Register failure.";
 		return newUser;
+	}
+	
+	private void checkDB(User user) throws Exception
+	{
+		if (db.addUser(user) == false)
+			throw new Exception("Un utilisateur existe deja avec cette adresse mail");
 	}
 	
 	private void checkMail(String email) throws Exception
