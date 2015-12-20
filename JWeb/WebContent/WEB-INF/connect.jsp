@@ -27,6 +27,7 @@
 
                 <input type="submit" value="connect"/>
                 <br />
+				<span class="error">${form.errors['database']}</span> <br />
                 
                 <p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
                 

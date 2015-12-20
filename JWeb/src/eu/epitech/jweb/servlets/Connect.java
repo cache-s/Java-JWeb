@@ -41,7 +41,7 @@ public class Connect extends HttpServlet
         }
         request.setAttribute(ATT_FORM, form );
         request.setAttribute(ATT_USER, user);
-        response.sendRedirect(URL_REDIRECTION);
-        //this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+        //response.sendRedirect(URL_REDIRECTION);
+        this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
     }	
 }

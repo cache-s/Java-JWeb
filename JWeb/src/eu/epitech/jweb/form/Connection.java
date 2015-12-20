@@ -14,6 +14,8 @@ import eu.epitech.jweb.db.DatabaseAction;
 public class Connection {
 	private static final String EMAIL_INPUT = "email";
 	private static final String PASS_INPUT = "password";
+	private static final String DATABASE_INPUT = "database";
+
 	private DatabaseAction db = new DatabaseAction();
 
 	private String result;
@@ -32,33 +34,37 @@ public class Connection {
 		String password = getFromRequest(request, PASS_INPUT);
 
 		User user = new User();
-		User dbUser;
+		User dbUser = null;
 
 		try {
 			validateEmail(email);
 		} catch (Exception e) {
-			setErreur(EMAIL_INPUT, e.getMessage());
+			setError(EMAIL_INPUT, e.getMessage());
 		}
 		user.setEmail(email);
 
 		try {
 			validatePassword(password);
 		} catch (Exception e) {
-			setErreur(PASS_INPUT, e.getMessage());
+			setError(PASS_INPUT, e.getMessage());
 		}
 		user.setPassword(password);
 
-		dbUser = db.findUser("email", user.getEmail());
-		try {
-			MessageDigest md;
-			md = MessageDigest.getInstance("MD5");
-			byte[] messageDigest = md.digest(password.getBytes());
-			BigInteger nbr = new BigInteger(1, messageDigest);
-			String hashpass = nbr.toString(16);
-			if (!hashpass.equals(dbUser.getPassword()))
-				errors.put(PASS_INPUT, "Wrong password");
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
+			dbUser = db.findUser("email", user.getEmail());
+			if (dbUser == null)
+				setError(EMAIL_INPUT, "Email invalide");
+		if (errors.isEmpty()) {
+			try {
+				MessageDigest md;
+				md = MessageDigest.getInstance("MD5");
+				byte[] messageDigest = md.digest(password.getBytes());
+				BigInteger nbr = new BigInteger(1, messageDigest);
+				String hashpass = nbr.toString(16);
+				if (!hashpass.equals(dbUser.getPassword()))
+					errors.put(PASS_INPUT, "Wrong password");
+			} catch (NoSuchAlgorithmException e) {
+				throw new RuntimeException(e);
+			}
 		}
 		if (errors.isEmpty()) {
 			result = "Succès de la connexion.";
@@ -84,7 +90,7 @@ public class Connection {
 		}
 	}
 
-	private void setErreur(String champ, String message) {
+	private void setError(String champ, String message) {
 		errors.put(champ, message);
 	}
 
