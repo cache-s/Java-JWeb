@@ -13,17 +13,19 @@
 		<nav class="user">
 			<c:choose>
 				<c:when test="${empty sessionScope.userSession}">
-					<a href="http://localhost:8080/JWeb/register"
+					<a href="register"
 						title="Create account">Register</a>
 					<span>·</span>
-					<a href="http://localhost:8080/JWeb/connect"
+					<a href="connect"
 						title="Connect to your account">Connect</a>
 					<span>·</span>
-					<a href="http://localhost:8080/JWeb/newsletter"
+					<a href="newsletter"
 						title="Subscribe to the newsletter">Newsletter</a>
 				</c:when>
 				<c:otherwise>
-					<a href="http://localhost:8080/JWeb/profile" title="Profile">Profile</a>
+					<a href="profile" title="Profile">Profile</a>
+					<span>·</span>
+					<a href="disconnect" title="Profile">Disconnect</a>
 				</c:otherwise>
 			</c:choose>
 		</nav>
@@ -32,17 +34,17 @@
 	<!-- Menu Bellow -->
 	<nav class="navigationBellow">
 		<ul>
-			<li><a href="http://localhost:8080/JWeb/index" title="Home page">Home</a>
+			<li><a href="index" title="Home page">Home</a>
 			</li>
-			<li><a href="http://localhost:8080/JWeb/shop"
+			<li><a href="shop"
 				title="Buy lightsabers">Shop</a></li>
-			<li><a href="http://localhost:8080/JWeb/profile"
+			<li><a href="profile"
 				title="Manage your account">Profile</a></li>
-			<li><a href="http://localhost:8080/JWeb/aboutus"
+			<li><a href="aboutus"
 				title="Learn more about us">About us</a></li>
-			<li><a href="http://localhost:8080/JWeb/contact"
+			<li><a href="contact"
 				title="Contact us">Contact</a></li>
-			<li class="cart"><a href="http://localhost:8080/JWeb/cart"
+			<li class="cart"><a href="cart"
 				title="Your cart">Cart (0)</a></li>
 		</ul>
 	</nav>
