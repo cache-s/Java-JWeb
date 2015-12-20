@@ -65,7 +65,7 @@ public class Connection {
 		} else {
 			result = "Échec de la connexion.";
 		}
-		return user;
+		return dbUser;
 	}
 
 	private void validateEmail(String email) throws Exception {
