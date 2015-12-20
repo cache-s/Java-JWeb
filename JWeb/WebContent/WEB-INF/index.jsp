@@ -15,7 +15,7 @@
 	<body>
 		<jsp:include page="header.jsp"/>
 
-		<div class="main">
+		<div class="mainIndex">
 		
 			<div class="position1 col-lg-12">
                 <div id="myCarousel" class="carousel slide">

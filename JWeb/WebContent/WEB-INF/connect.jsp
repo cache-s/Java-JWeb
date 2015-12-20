@@ -10,34 +10,34 @@
 	<body>
 		<jsp:include page="header.jsp"/>
 		<div class="main">
-        <form method="post" action="connect">
-            <fieldset>
-                <legend>Connexion</legend>
-                <p>Vous pouvez vous connecter via ce formulaire.</p>
+        
+    	<form action="connect" method="post" class="formulaire">
+		    <h1>SaberForge - Connect 
+		        <span>Fields with a '*' are mandatory.</span>
+		    </h1>
 
-                <label for="name">Adresse email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" size="20" maxlength="60" />
+		    <label>
+		        <span>Email* :</span>
+		        <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" placeholder="Your E-mail" size="40" maxlength="60" />
                 <span class="error">${form.errors['email']}</span>
-                <br />
+		    </label>
 
-                <label for="password">Mot de passe <span class="required">*</span></label>
-                <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
+		    <label>
+		        <span>Password* :</span>
+                <input type="password" id="password" name="password" value="" size="40" maxlength="20" />
                 <span class="error">${form.errors['password']}</span>
-                <br />
+		    </label>
+		    
+		    <input class="button" type="submit" value="register" />
+            <span class="error">${form.errors['database']}</span>
+			<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
 
-                <input type="submit" value="connect"/>
-                <br />
-				<span class="error">${form.errors['database']}</span> <br />
-                
-                <p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
-                
-                  <c:if test="${!empty sessionScope.userSession}">
+		    <c:if test="${!empty sessionScope.userSession}">
                     <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
                     <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.userSession.email}</p>
-                </c:if>
-                
-            </fieldset>
-        </form>	
+            </c:if>
+		</form>
+	
         </div>
 		<jsp:include page="footer.jsp"/>
 	</body>
