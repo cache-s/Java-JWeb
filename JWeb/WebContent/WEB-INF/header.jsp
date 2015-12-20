@@ -3,7 +3,7 @@
 
 <header>
 	<div class="logo">
-		<a href="" title="Home page"></a>
+		<a href="index" title="Home page"></a>
 	</div>
 
 	<!-- Menu Above -->
