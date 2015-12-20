@@ -20,6 +20,7 @@ public class Registration
 	private static final 	String	STATE_INPUT		= "state";
 	private static final	String	CITY_INPUT		= "city";
 	private static final	String	GENDER_INPUT	= "gender";
+	private static final	String	NEWSLETTER_INPUT= "newsletter";
 	private static final	String	DATABASE_INPUT	= "database";
 	
 	private 				String 	result;
@@ -46,6 +47,7 @@ public class Registration
 		String	state		= getFromRequest(request, STATE_INPUT);
 		String	city		= getFromRequest(request, CITY_INPUT);
 		String	gender		= getFromRequest(request, GENDER_INPUT);
+		String	newsletter	= getFromRequest(request, NEWSLETTER_INPUT);
 		User	newUser		= new User();
 
 		try {
@@ -86,6 +88,15 @@ public class Registration
 		newUser.setState(state);
 		newUser.setCity(city);
 		newUser.setGender(gender);
+
+		try {
+			checkNews(newsletter);
+		} catch (Exception e) {
+			errors.put(NEWSLETTER_INPUT, e.getMessage());
+		}
+
+		newUser.setNewsletter(newsletter);
+
 		try {
 			checkDB(newUser);
 		} catch (Exception e) {
@@ -97,6 +108,11 @@ public class Registration
 		else
 			result = "Register failure.";
 		return newUser;
+	}
+
+	private void checkNews(String value) throws Exception
+	{
+		System.out.println(value);
 	}
 	
 	private void checkDB(User user) throws Exception

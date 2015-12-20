@@ -16,6 +16,8 @@ public class Connect extends HttpServlet
     public static final String ATT_USER         = "user";
     public static final String ATT_FORM         = "form";
     public static final String ATT_SESSION_USER = "userSession";
+    public static final String URL_REDIRECTION	= "http://localhost:8080/JWeb/index";
+
 
 	public static final String VIEW = "/WEB-INF/connect.jsp";
 	
@@ -39,6 +41,7 @@ public class Connect extends HttpServlet
         }
         request.setAttribute(ATT_FORM, form );
         request.setAttribute(ATT_USER, user);
-        this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+        response.sendRedirect(URL_REDIRECTION);
+        //this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
     }	
 }

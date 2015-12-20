@@ -21,6 +21,30 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+   <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>jordan.chazottes@gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>jordana3bc4</param-value>
+    </context-param>
+ 
+    <welcome-file-list>
+        <welcome-file>EmailForm.jsp</welcome-file>
+    </welcome-file-list>
+
 	<servlet>
 		<servlet-name>index</servlet-name>
 		<servlet-class>eu.epitech.jweb.servlets.Index</servlet-class>
@@ -140,4 +164,13 @@
 		<servlet-name>lightsabers</servlet-name>
 		<url-pattern>/lightsabers</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>emailForm</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.EmailForm</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emailForm</servlet-name>
+		<url-pattern>/emailForm</url-pattern>
+	</servlet-mapping>
+
 </web-app>
