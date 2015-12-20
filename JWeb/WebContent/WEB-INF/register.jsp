@@ -12,77 +12,86 @@
     	<jsp:include page="header.jsp"/>
     	
     	<div class="main">
-        <form method="post" action="register">
-            <fieldset>
-                <legend>Register</legend>
-				<p>Register here</p>
+    	
+    	<form action="register" method="post" class="formulaire">
+		    <h1>SaberForge - Register 
+		        <span>Fields with a '*' are mandatory.</span>
+		    </h1>
 
-				<label for="firstName">First name</label>
-				<input type="text" id="firstName" name="firstName" value="<c:out value="${user.firstName}"/>" size="40" maxlength="20" />
+		    <label>
+		        <span>First name :</span>
+		        <input type="text" id="firstName" name="firstName" value="<c:out value="${user.firstName}"/>" placeholder="Your First Name" size="40" maxlength="20" />
 				<span class="error">${form.errors['firstName']}</span>
-				<br />
-                
-                <label for="lastName">Last name</label>
-                <input type="text" id="lastName" name="lastName" value="<c:out value="${user.lastName}"/>" size="40" maxlength="20" />
+		    </label>
+		    
+		    <label>
+		        <span>Last name :</span>
+                <input type="text" id="lastName" name="lastName" value="<c:out value="${user.lastName}"/>" placeholder="Your Last Name" size="40" maxlength="20" />
                 <span class="error">${form.errors['lastName']}</span>
-                <br />
-                
-                <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" size="40" maxlength="60" />
+		    </label>
+		    
+		    <label>
+		        <span>Email* :</span>
+		        <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" placeholder="Your E-mail" size="40" maxlength="60" />
                 <span class="error">${form.errors['email']}</span>
-                <br />
-
-                <label for="userName">User name <span class="required">*</span></label>
-                <input type="text" id="userName" name="userName" value="<c:out value="${user.userName}"/>" size="40" maxlength="20" />
+		    </label>
+		    
+		    <label>
+		        <span>Username* :</span>
+                <input type="text" id="userName" name="userName" value="<c:out value="${user.userName}"/>" placeholder="Your username" size="40" maxlength="20" />
                 <span class="error">${form.errors['userName']}</span>
-                <br />
-
-                <label for="password">Password<span class="requis">*</span></label>
+		    </label>
+		    
+		    <label>
+		        <span>Password* :</span>
                 <input type="password" id="password" name="password" value="" size="40" maxlength="20" />
                 <span class="error">${form.errors['password']}</span>
-                <br />
-
-                <label for="password2">Confirm password<span class="requis">*</span></label>
+		    </label>
+		    
+			<label>
+		        <span>Confirm password* :</span>
                 <input type="password" id="password2" name="password2" value="" size="40" maxlength="20" />
                 <span class="error">${form.errors['password2']}</span>
-                <br />
-				
-                <label for="address">address</label>
-                <input type="text" id="address" name="address" value="<c:out value="${user.address}"/>" size="40" maxlength="20" />
+		    </label>
+		    
+			<label>
+		        <span>Address :</span>
+                <input type="text" id="address" name="address" value="<c:out value="${user.address}"/>" placeholder="Your address" size="40" maxlength="20" />
                 <span class="error">${form.errors['address']}</span>
-                <br />
-
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" value="<c:out value="${user.state}"/>" size="40" maxlength="20" />
+		    </label>
+		    
+			<label>
+		        <span>State :</span>
+                <input type="text" id="state" name="state" value="<c:out value="${user.state}"/>" placeholder="Your State" size="40" maxlength="20" />
                 <span class="error">${form.errors['state']}</span>
-                <br />
-                
-				<label for="city">City</label>
-                <input type="text" id="city" name="city" value="<c:out value="${user.city}"/>" size="40" maxlength="20" />
+		    </label>
+		    
+			<label>
+		        <span>City :</span>
+                <input type="text" id="city" name="city" value="<c:out value="${user.city}"/>" placeholder="Your City" size="40" maxlength="20" />
                 <span class="error">${form.errors['city']}</span>
-                <br />
-                
-                <label for="gender">Gender</label>
-				<input type="text" id="gender" name="gender" value="<c:out value="${user.gender}"/>" size="40" maxlength="20" list="gender" >
+		    </label>
+		    
+		     <label>
+		        <span>Gender :</span>
+		        <input type="text" id="gender" name="gender" value="<c:out value="${user.gender}"/>" size="40" maxlength="20" list="gender" >
 				<datalist id="gender">
 					<option value="Male">
 					<option value="Female">
-					<option value="Sith">
-					<option value="Jedi">
 					<option value="Other">
 				</datalist>
-                <br />
-				<label for="newsletter">Suscribe to newsletter </label>
-				<input type="radio" name="newsletter" value="1" checked>Yes
-				<input type="radio" name="newsletter" value="0">No<br>
-				<br />
-				 
-                <input type="submit" value="register" /> <br />
-                <span class="error">${form.errors['database']}</span> <br />
+		    </label>
+		    
+				<label>
+					<span>Suscribe to the newsletter : </span>
+					<input type="radio" name="newsletter" value="1" checked>Yes
+					<input type="radio" name="newsletter" value="0">No
+				</label>
+				
+		        <input class="button" type="submit" value="register" />
+                <span class="error">${form.errors['database']}</span>
 				<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
-                
-            </fieldset>
-        </form>
+		</form>
         </div>
 		<jsp:include page="footer.jsp"/>
     </body>
