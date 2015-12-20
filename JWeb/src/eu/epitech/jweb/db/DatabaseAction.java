@@ -54,6 +54,33 @@ public class DatabaseAction {
 		return true;
 	}
 
+	public boolean addToMailingList(String mail) 
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(URL, USER, PASS);
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM news WHERE email='" + mail + "'");
+			if (result.next() == true)
+				return false;
+			PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO news(email) VALUES (?)");
+			preparedStatement.setString(1, mail);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException e) {
+				System.err.println(e);
+			}
+		}
+		return true;
+	}
+	
 	public User findUser(String attribute, String value) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

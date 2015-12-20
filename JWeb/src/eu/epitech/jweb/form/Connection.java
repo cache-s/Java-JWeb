@@ -14,7 +14,6 @@ import eu.epitech.jweb.db.DatabaseAction;
 public class Connection {
 	private static final String EMAIL_INPUT = "email";
 	private static final String PASS_INPUT = "password";
-	private static final String DATABASE_INPUT = "database";
 
 	private DatabaseAction db = new DatabaseAction();
 
