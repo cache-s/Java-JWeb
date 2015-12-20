@@ -44,13 +44,13 @@
 		    
 		    <label>
 		        <span>Password* :</span>
-                <input type="password" id="password" name="password" value="" size="40" maxlength="20" />
+                <input type="password" id="password" name="password" value="" placeholder="Your Password" size="40" maxlength="20" />
                 <span class="error">${form.errors['password']}</span>
 		    </label>
 		    
 			<label>
 		        <span>Confirm password* :</span>
-                <input type="password" id="password2" name="password2" value="" size="40" maxlength="20" />
+                <input type="password" id="password2" name="password2" value="" placeholder="Your Password" size="40" maxlength="20" />
                 <span class="error">${form.errors['password2']}</span>
 		    </label>
 		    
@@ -88,7 +88,7 @@
 					<input type="radio" name="newsletter" value="0">No
 				</label>
 				
-		        <input class="button" type="submit" value="register" />
+		        <input class="button" type="submit" value="Register" />
                 <span class="error">${form.errors['database']}</span>
 				<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
 		</form>

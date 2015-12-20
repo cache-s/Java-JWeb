@@ -11,19 +11,22 @@
 		<jsp:include page="header.jsp"/>
 	
 		<div class="main">
-		<form method="post" action="newsletter">
-			<br />
-			<br />
-			<label for="name">Adresse email <span class="required">*</span></label>
-			<input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" size="20" maxlength="60" />
-			<span class="error">${form.errors['email']}</span>
-			<br />
-			<input type="submit" value="Suscribe"/><br />
-			<span class="error">${form.errors['database']}</span>
+		
+		<form action="newsletter" method="post" class="formulaire">
+		    <h1>SaberForge - Subscribe to the Newsletter 
+		    </h1>
+
+		    <label>
+		        <span>Email :</span>
+		        <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" placeholder="Your E-mail" size="40" maxlength="60" />
+                <span class="error">${form.errors['email']}</span>
+		    </label>
+		    
+		    <input class="button" type="submit" value="Subscribe" />
+            <span class="error">${form.errors['database']}</span>
 			<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
-			
-			<br />		
-			</form>
+		</form>
+		
 		</div>
 	
 		<jsp:include page="footer.jsp"/>
