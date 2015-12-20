@@ -72,7 +72,11 @@
 					<option value="Other">
 				</datalist>
                 <br />
-
+				<label for="newsletter">Suscribe to newsletter </label>
+				<input type="radio" name="newsletter" value="1" checked>Yes
+				<input type="radio" name="newsletter" value="0">No<br>
+				<br />
+				 
                 <input type="submit" value="register" /> <br />
                 <span class="error">${form.errors['database']}</span> <br />
 				<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
