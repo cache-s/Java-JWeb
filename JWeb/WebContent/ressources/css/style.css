@@ -456,15 +456,16 @@ footer strong {
 /* FORM */
 
 .formulaire {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 50%;
-    background: #555;
-    padding: 20px 30px 40px 30px;
-    color: #D3D3D3;
-    text-shadow: 1px 1px 1px #444;
-    border: none;
-    border-radius: 5px;
+	position:		relative;
+    width:			50%;
+    height:			100%;
+    padding:		20px 30px 40px 30px;
+    margin:			auto;
+    background:		#555;
+    color:			#D3D3D3;
+    text-shadow:	1px 1px 1px #444;
+    border:			none;
+    border-radius:	5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
