@@ -31,8 +31,8 @@ public class DatabaseAction {
 				preparedStatement.setString(7, user.getState());
 				preparedStatement.setString(8, user.getCity());
 				preparedStatement.setString(9, user.getGender());
-				preparedStatement.setBoolean(10, false);
-				preparedStatement.setBoolean(11, false);
+				preparedStatement.setString(10, "0");
+				preparedStatement.setString(11, user.getNewsletter());
 				preparedStatement.executeUpdate();
 			} else {
 				if (connection != null)
@@ -66,7 +66,7 @@ public class DatabaseAction {
 				User ret = new User(result.getInt("id"), result.getString("firstName"), result.getString("lastName"),
 						result.getString("email"), result.getString("userName"), result.getString("pass"),
 						result.getString("address"), result.getString("state"), result.getString("city"),
-						result.getString("gender"), result.getBoolean("admin"), result.getBoolean("newsletter"));
+						result.getString("gender"), result.getString("admin"), result.getString("newsletter"));
 				return ret;
 			}
 		} catch (SQLException e) {
