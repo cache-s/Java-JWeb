@@ -11,15 +11,16 @@
 		<jsp:include page="../WEB-INF/header.jsp"/>
 	
 		<div class="main">
+		<form action="profile" method="post" class="formuaire">
 			<p>Vous êtes connecté(e) avec l'adresse ${sessionScope.userSession.email}, vous avez bien accès à l'espace restreint.</p>
 			<label>First name : </label>
 			<input type="text" id="firstName" name="firstName" value="<c:out value="${sessionScope.userSession.firstName}"/>" size="20" maxlength="20" /><br />
+			<span class="error">${form.errors['firstName']}</span>
 			<label>Last name : </label>
 			<input type="text" id="lastName" name="lastName" value="<c:out value="${sessionScope.userSession.lastName}"/>" size="20" maxlength="20" /><br />
-			<label>Email : </label>
-			<input type="text" id="email" name="email" value="<c:out value="${sessionScope.userSession.email}"/>" size="20" maxlength="20" /><br />
+			<label>Email : ${sessionScope.userSession.email}</label><br />
 			<label>Username : </label>
-			<input type="text" id="firstName" name="firstName" value="<c:out value="${sessionScope.userSession.userName}"/>" size="20" maxlength="20" /><br />
+			<input type="text" id="userName" name="userName" value="<c:out value="${sessionScope.userSession.userName}"/>" size="20" maxlength="20" /><br />
 			<label>Change password : </label>
 			<input type="password" id="password" name="password" size="20" maxlength="20" /><br />
 			<label>Confirm password : </label>
@@ -44,6 +45,10 @@
 					<input type="radio" name="newsletter" value="0">No<br>
 				</c:otherwise>
 			</c:choose>
+			<input class="button" type="submit" value="Submit" />
+			<%--<span class="error">${form.errors['database']}</span> --%>
+			<p class="${empty form.errors ? 'succes' : 'error'}">${form.result}</p>
+			</form>
 		</div>
 	<jsp:include page="../WEB-INF/footer.jsp"/>
 	</body>

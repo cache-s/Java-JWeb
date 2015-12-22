@@ -107,7 +107,7 @@ public class User
 		this.gender = gender;
 	}
 
-	public String isAdmin() {
+	public String getAdmin() {
 		return admin;
 	}
 

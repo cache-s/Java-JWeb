@@ -91,6 +91,15 @@
 		<url-pattern>/private/*</url-pattern>
 	</filter-mapping>
 
+<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>eu.epitech.jweb.filters.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+
 	<servlet>
 		<servlet-name>profile</servlet-name>
 		<servlet-class>eu.epitech.jweb.servlets.Profile</servlet-class>
@@ -164,6 +173,16 @@
 		<servlet-name>lightsabers</servlet-name>
 		<url-pattern>/lightsabers</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>adminPanel</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.AdminPanel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adminPanel</servlet-name>
+		<url-pattern>/adminPanel</url-pattern>
+	</servlet-mapping>
+	
 	<servlet>
 		<servlet-name>emailForm</servlet-name>
 		<servlet-class>eu.epitech.jweb.servlets.EmailForm</servlet-class>

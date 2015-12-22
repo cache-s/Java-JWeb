@@ -44,6 +44,10 @@
 				title="Learn more about us">About us</a></li>
 			<li><a href="contact"
 				title="Contact us">Contact</a></li>
+			<c:if test="${sessionScope.userSession.admin == '1'}">
+			<li><a href="adminPanel"
+				title="adminPanel">Panel admin</a></li>
+			</c:if>
 			<li class="cart"><a href="cart"
 				title="Your cart">Cart (0)</a></li>
 		</ul>
