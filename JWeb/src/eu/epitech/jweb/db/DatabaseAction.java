@@ -147,27 +147,37 @@ public class DatabaseAction {
 		return ret;
 	}
 
-	public void updateUser(User user) throws Exception
-	{
+	public void updateUser(User user) throws Exception {
 		System.out.println("Updating DB, user FN = " + user.getFirstName() + "user ID = " + user.getId());
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection(URL, USER, PASS);
-				System.out.println(user.getUserName());
-				//PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET firstName='"+ user.getFirstName() +"', lastName='"+user.getLastName() +"', userName='"+user.getUserName()+"', pass=MD5('"+user.getPassword()+"'), address='"+user.getAddress()+"', state='"+user.getState()+"', city='"+user.getCity()+"', gender='"+user.getGender()+"', newsletter='"+user.getNewsletter()+"' WHERE id='"+user.getId()+"'");
-				PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET firstName=?, lastName=?, userName=?, pass=MD5(?), address=?, state=?, city=?, gender='"+user.getGender()+"', newsletter='"+user.getNewsletter()+"' WHERE id='"+user.getId()+"'");
-				preparedStatement.setString(1, ((user.getFirstName() == null) ? "" : user.getFirstName()));
-				preparedStatement.setString(2, ((user.getLastName() == null) ? "" : user.getLastName()));
-				preparedStatement.setString(3, user.getUserName());
-				preparedStatement.setString(4, user.getPassword());
-				preparedStatement.setString(5, user.getAddress());
-				preparedStatement.setString(6, user.getState());
-				preparedStatement.setString(7, user.getCity());
-				preparedStatement.setString(8, user.getGender());
-				preparedStatement.setString(9, user.getNewsletter());
-				preparedStatement.setLong(10, user.getId());
-				preparedStatement.executeUpdate();
-		}catch (SQLException e) {
+			connection = DriverManager.getConnection(URL, USER, PASS);
+			System.out.println(user.getUserName());
+			// PreparedStatement preparedStatement =
+			// connection.prepareStatement("UPDATE users SET firstName='"+
+			// user.getFirstName() +"', lastName='"+user.getLastName() +"',
+			// userName='"+user.getUserName()+"',
+			// pass=MD5('"+user.getPassword()+"'),
+			// address='"+user.getAddress()+"', state='"+user.getState()+"',
+			// city='"+user.getCity()+"', gender='"+user.getGender()+"',
+			// newsletter='"+user.getNewsletter()+"' WHERE
+			// id='"+user.getId()+"'");
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"UPDATE users SET firstName=?, lastName=?, userName=?, pass=MD5(?), address=?, state=?, city=?, gender='"
+							+ user.getGender() + "', newsletter='" + user.getNewsletter() + "' WHERE id='"
+							+ user.getId() + "'");
+			preparedStatement.setString(1, ((user.getFirstName() == null) ? "" : user.getFirstName()));
+			preparedStatement.setString(2, ((user.getLastName() == null) ? "" : user.getLastName()));
+			preparedStatement.setString(3, user.getUserName());
+			preparedStatement.setString(4, user.getPassword());
+			preparedStatement.setString(5, user.getAddress());
+			preparedStatement.setString(6, user.getState());
+			preparedStatement.setString(7, user.getCity());
+			preparedStatement.setString(8, user.getGender());
+			preparedStatement.setString(9, user.getNewsletter());
+			preparedStatement.setLong(10, user.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -179,5 +189,29 @@ public class DatabaseAction {
 				System.err.println(e);
 			}
 		}
+	}
+
+	public void modifyAdmin(String email, String value)
+	{
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(URL, USER, PASS);
+			PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET admin=? WHERE email='"+email+"'");
+			preparedStatement.setString(1, value);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (connection != null)
+					connection.close();
+			} catch (SQLException e) {
+				System.err.println(e);
+			}
+		}
+
 	}
 }

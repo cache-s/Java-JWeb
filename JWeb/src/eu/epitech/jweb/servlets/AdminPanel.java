@@ -45,13 +45,9 @@ public class AdminPanel extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		Administration admin = new Administration();
-		for (User user : userList)
-		{
-			if ((request.getParameter("set" + user.getEmail())) != null)
-				System.out.println("button clicked : set" + user.getEmail());
-			if ((request.getParameter("unset" + user.getEmail())) != null)
-				System.out.println("button clicked : unset" + user.getEmail());
-		}
+		admin.execUpdate(request, userList);
+		userList = admin.getUserslist(request);
+		request.setAttribute(ATT_USERS, userList);
         this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);
 	}
 }

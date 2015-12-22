@@ -24,8 +24,8 @@ public class Register extends HttpServlet {
 	{
 		Registration newRegist = new Registration();
 		User newUser = newRegist.registerUser(request);
-        request.setAttribute( ATT_REGIST, newRegist);
-        request.setAttribute( ATT_USER, newUser);
+        request.setAttribute(ATT_REGIST, newRegist);
+        request.setAttribute(ATT_USER, newUser);
         this.getServletContext().getRequestDispatcher(VIEW).forward( request, response );
 	}	
 }

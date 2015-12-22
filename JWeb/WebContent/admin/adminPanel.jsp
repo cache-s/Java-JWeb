@@ -27,7 +27,7 @@
     					<button type="submit" name ="set${user.email}" >set Admin</button>
     				</c:when>
     				<c:otherwise>
-    					<button type="submit" name ="'unset' + ${user.email}" >unset Admin</button>
+    					<button type="submit" name ="unset${user.email}" >unset Admin</button>
     				</c:otherwise>
     			</c:choose>
     		<br/>
