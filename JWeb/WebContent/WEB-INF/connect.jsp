@@ -23,13 +23,13 @@
 		    </h1>
 
 		    <label>
-		        <span>Email* :</span>
+		        <span class="labelName">Email* :</span>
 		        <input type="email" id="email" name="email" value="<c:out value="${user.email}"/>" placeholder="Your E-mail" size="40" maxlength="60" />
                 <span class="error">${form.errors['email']}</span>
 		    </label>
 
 		    <label>
-		        <span>Password* :</span>
+		        <span class="labelName">Password* :</span>
                 <input type="password" id="password" name="password" value="" placeholder="Your Password" size="40" maxlength="20" />
                 <span class="error">${form.errors['password']}</span>
 		    </label>
