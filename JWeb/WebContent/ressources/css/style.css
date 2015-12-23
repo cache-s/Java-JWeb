@@ -459,7 +459,7 @@ footer strong {
 	position:		relative;
     width:			50%;
     height:			100%;
-    padding:		20px 30px 40px 30px;
+    padding:		20px 30px 50px 30px;
     margin:			auto;
     background:		#555;
     color:			#D3D3D3;
@@ -475,16 +475,23 @@ footer strong {
     border-bottom: 1px solid #444;
     margin: -10px -30px 30px -30px;
 }
-.formulaire h1>span {
+.formulaire h1 > span {
     display: block;
     font-size: 11px;
 }
 .formulaire label {
     display: block;
     margin: 0px 0px 2px;
-    min-height:		50px;
+    min-height: 75px;
 }
-.formulaire label>span {
+
+.error
+{
+	float: right;
+    margin: 0 0 10px 10px;
+}
+
+.formulaire label > .labelName {
     float: left;
     width: 25%;
     text-align: right;
@@ -551,11 +558,6 @@ footer strong {
 input[type="radio"]
 {
 	margin-top:		15px;
-}
-
-.error
-{
-	display:		none;
 }
 
 /* ABOUT US */
