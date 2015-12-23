@@ -45,6 +45,8 @@ public class NewsSub {
 		if (email != null && !email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
 			throw new Exception("Merci de saisir une adresse mail valide.");
 		}
+		if (email == null)
+			throw new Exception("Merci de saisir une adresse mail valide.");
 	}
 	
 	private static String getFromRequest(HttpServletRequest request, String input) {
