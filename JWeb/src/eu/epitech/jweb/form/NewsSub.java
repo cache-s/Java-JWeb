@@ -26,13 +26,12 @@ public class NewsSub {
 	public void addToNewsDB(HttpServletRequest request)
 	{
 		String email = getFromRequest(request, EMAIL_INPUT);
-		
 		try {
 			validateEmail(email);
 		} catch (Exception e) {
 			errors.put(EMAIL_INPUT, e.getMessage());
 		}
-		if (db.addToMailingList(email) == false)
+		if (db.setNewsletter(email, "add") == false)
 			errors.put(DATABASE_INPUT, "You're already in our mailing list !");
 		if (errors.isEmpty()) {
 			result = "Register success !";

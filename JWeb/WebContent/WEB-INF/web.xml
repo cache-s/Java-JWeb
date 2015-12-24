@@ -192,4 +192,12 @@
 		<url-pattern>/emailForm</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>emailSending</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.EmailSending</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emailSending</servlet-name>
+		<url-pattern>/emailSending</url-pattern>
+	</servlet-mapping>
 </web-app>

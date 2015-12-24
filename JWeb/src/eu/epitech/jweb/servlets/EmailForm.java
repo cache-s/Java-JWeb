@@ -33,6 +33,9 @@ public class EmailForm extends HttpServlet
 		this.getServletContext().getRequestDispatcher( VIEW ).forward( request, response );
 	}
 		
+    /* (non-Javadoc)
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         // reads form fields
@@ -51,8 +54,7 @@ public class EmailForm extends HttpServlet
             resultMessage = "There were an error: " + ex.getMessage();
         } finally {
             request.setAttribute("Message", resultMessage);
-            getServletContext().getRequestDispatcher("/Result.jsp").forward(
-                    request, response);
+         response.sendRedirect(request.getContextPath() + "/admin/adminPanel");
         }
     }
 }

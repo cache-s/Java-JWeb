@@ -49,7 +49,7 @@ public class Connection {
 		}
 		user.setPassword(password);
 
-			dbUser = db.findUser("email", user.getEmail());
+			dbUser = db.find("email", user.getEmail());
 			if (dbUser == null)
 				setError(EMAIL_INPUT, "Email invalide");
 		if (errors.isEmpty()) {
