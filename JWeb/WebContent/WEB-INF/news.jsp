@@ -15,12 +15,30 @@
 		<jsp:include page="header.jsp"/>
 
 		<div class="main">
-			<div class="newsLayout">
-				<div class="news">
-					<p class="newsDate">Date</p>
-					<p class="newsContent">Contenu</p>
-					<p class="newsAutor">Auteur</p>
-				</div>
+			<div class="news">
+				<p class="newsTitle">Title</p>
+				<p class="newsContent">Contenu</p>
+				<p class="newsInfos">Date<br/>Auteur</p>
+			</div>
+			<div class="news">
+				<p class="newsTitle">Title</p>
+				<p class="newsContent">Contenu</p>
+				<p class="newsInfos">Date<br/>Auteur</p>
+			</div>
+			<div class="news">
+				<p class="newsTitle">Title</p>
+				<p class="newsContent">Contenu</p>
+				<p class="newsInfos">Date<br/>Auteur</p>
+			</div>
+			<div class="news">
+				<p class="newsTitle">Title</p>
+				<p class="newsContent">Contenu</p>
+				<p class="newsInfos">Date<br/>Auteur</p>
+			</div>
+			<div class="news">
+				<p class="newsTitle">Title</p>
+				<p class="newsContent">Contenu</p>
+				<p class="newsInfos">Date<br/>Auteur</p>
 			</div>
 		</div>
 

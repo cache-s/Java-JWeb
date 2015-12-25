@@ -6,6 +6,7 @@ html {
 }
 
 body {
+	background-color: #211D1E;
 	width:		100%;
 	height:		100%;
 	margin:		0;
@@ -315,28 +316,39 @@ header a:hover {
 	font-weight:	150px;
 }
 
-.newsLayout {
-	height:			100%;
-	width:			100%;
-	display:		block;
-	position:		absolute;	
-	background-color:red;
-}
-
 .news {
-	
-}
-
-.newsDate {
-	
+	background-color:#473E40;
+    border-radius:	10px;
+    position:		relative;
+    width:			80%;
+    left:			0;
+    right:			0;
+	margin-left:	auto;
+	margin-right:	auto;
+    margin-top:		3%;
+    padding:		2%;
+    min-height:		250px;
+    color:			white;
 }
 
 .newsContent {
 	
 }
 
-.newsAutor {
-	
+.newsTitle {
+	font-size:		35px;
+	text-transform: uppercase;
+	-webkit-user-select: none;
+	color:			white;
+	font-weight:	bold;
+}
+
+.newsInfos {
+	bottom:			0;
+	right:			0;
+	position:		absolute;
+	padding-right:	2%;
+	padding-bottom:	2%;
 }
 
 /* FOOTER */
