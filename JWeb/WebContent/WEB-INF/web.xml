@@ -175,6 +175,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>news</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.News</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>news</servlet-name>
+		<url-pattern>/news</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>adminPanel</servlet-name>
 		<servlet-class>eu.epitech.jweb.servlets.AdminPanel</servlet-class>
 	</servlet>
