@@ -248,6 +248,97 @@ header a:hover {
 	margin: 0 auto;
 }
 
+.productBuy
+{
+	height:			100%;
+	width:			100%;
+	min-height:		100%;
+	position:		absolute;
+}
+
+.imageBuy {
+	display:		inline-block;
+    position:		absolute;
+    height:			90%;
+    width:			25%;
+    border-radius:	10px 10px 10px 10px;
+    background-repeat:no-repeat;
+    top:			0;
+    bottom:			0;
+    left:			20px;
+    margin:			auto;
+}
+
+.formContainer {
+	height:			100%;
+	width:			55%;
+	margin-left:	33%;
+	position:		absolute;
+	padding:		5%;
+}
+
+.formContainer > form {
+	height:			100%;
+	width:			100%;
+	background-color:#473E40;
+	border-radius:	10px;
+	padding:		4%;
+	color:			white;
+	font-size:		15px;
+}
+
+.productName {
+	font-size:		35px;
+	text-transform: uppercase;
+	-webkit-user-select: none;
+	color:			white;
+	font-weight:	bold;
+}
+
+.productDescription {
+	
+}
+
+.priceBox {
+	bottom:			0;
+	left:			0;
+	right:			0;
+	margin:			auto;
+	border-radius:	10px;
+	padding:		1%;
+	text-align:		center;
+	position:		relative;
+	width:			40%;
+	background-color:#a89a90;
+	color:			black;
+	font-size:		17px;
+	font-weight:	150px;
+}
+
+.newsLayout {
+	height:			100%;
+	width:			100%;
+	display:		block;
+	position:		absolute;	
+	background-color:red;
+}
+
+.news {
+	
+}
+
+.newsDate {
+	
+}
+
+.newsContent {
+	
+}
+
+.newsAutor {
+	
+}
+
 /* FOOTER */
 
 footer {
