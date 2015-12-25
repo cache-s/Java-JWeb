@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,15 +20,15 @@
 		<div class="main">
 
 			<div class="productBuy">
-				<a class="imageBuy" href="" style="background-image:url('../JWeb/ressources/images/lightsaber1.jpg');"></a>
+				<a class="imageBuy" href="" style="background-image:url(${requestScope.product.image_url});"></a>
 				<div class="formContainer">
 					<form action="https://www.paypal.com/" method="get">
-						<span class="productName">Nom du produit</span>
+						<span class="productName">${requestScope.product.name}</span>
 						<br/>
-	           			<span class="productDescription">Description du produit</span>
+	           			<span class="productDescription">${requestScope.product.description}</span>
 	           			<br/><br/>
 	           			<div class="priceBox">
-							<span class="productPrice">Prix</span>
+							<span class="productPrice">${requestScope.product.price}</span>
 							<br/><br/>
 							<select>
 								<optgroup label="How much do you want to buy">
