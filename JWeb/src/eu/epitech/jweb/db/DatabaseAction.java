@@ -302,4 +302,36 @@ public class DatabaseAction {
 		}
 		return product;
 	}
+	
+	public List<News> getNews() {
+		List<News> ret = new ArrayList<News>();
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+
+			ResultSet result = statement.executeQuery("SELECT * FROM news");
+			while (result.next() == true) {
+				News news = new News();
+				news.setId(result.getInt("id"));
+				news.setAuthor(result.getString("author"));
+				news.setTitle(result.getString("title"));
+				news.setContent(result.getString("content"));
+				news.setDate(result.getDate("date"));
+				ret.add(news);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
 }

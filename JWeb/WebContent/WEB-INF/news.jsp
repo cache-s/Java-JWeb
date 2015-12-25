@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,31 +17,13 @@
 		<jsp:include page="header.jsp"/>
 
 		<div class="main">
+		<c:forEach var="n"  items="${requestScope.newsList}">
 			<div class="news">
-				<p class="newsTitle">Title</p>
-				<p class="newsContent">Contenu</p>
-				<p class="newsInfos">Date<br/>Auteur</p>
+				<p class="newsTitle">${n.title}</p>
+				<p class="newsContent">${n.content}</p>
+				<p class="newsInfos">${n.date}<br/>${n.author}</p>
 			</div>
-			<div class="news">
-				<p class="newsTitle">Title</p>
-				<p class="newsContent">Contenu</p>
-				<p class="newsInfos">Date<br/>Auteur</p>
-			</div>
-			<div class="news">
-				<p class="newsTitle">Title</p>
-				<p class="newsContent">Contenu</p>
-				<p class="newsInfos">Date<br/>Auteur</p>
-			</div>
-			<div class="news">
-				<p class="newsTitle">Title</p>
-				<p class="newsContent">Contenu</p>
-				<p class="newsInfos">Date<br/>Auteur</p>
-			</div>
-			<div class="news">
-				<p class="newsTitle">Title</p>
-				<p class="newsContent">Contenu</p>
-				<p class="newsInfos">Date<br/>Auteur</p>
-			</div>
+		</c:forEach>
 		</div>
 
 		<jsp:include page="footer.jsp"/>

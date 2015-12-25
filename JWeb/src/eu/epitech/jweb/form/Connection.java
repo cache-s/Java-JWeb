@@ -59,6 +59,9 @@ public class Connection {
 				byte[] messageDigest = md.digest(password.getBytes());
 				BigInteger nbr = new BigInteger(1, messageDigest);
 				String hashpass = nbr.toString(16);
+				 while (hashpass.length() < 32) {
+		                hashpass = "0" + hashpass;
+		            }
 				if (!hashpass.equals(dbUser.getPassword()))
 					errors.put(PASS_INPUT, "Wrong password");
 			} catch (NoSuchAlgorithmException e) {

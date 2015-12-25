@@ -140,6 +140,9 @@ public class UpdateProfil {
         byte[] messageDigest = md.digest(input.getBytes());
         BigInteger number = new BigInteger(1, messageDigest);
         hashtext = number.toString(16);
+   	 	while (hashtext.length() < 32) {
+   	 		hashtext = "0" + hashtext;
+   	 	}
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
