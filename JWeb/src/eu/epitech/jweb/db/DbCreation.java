@@ -30,9 +30,12 @@ public class DbCreation
 
 			System.out.println("Database creation and initialization ...");
 			statement.executeUpdate("CREATE DATABASE IF NOT EXISTS JWEB");
-			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), email VARCHAR(320), address NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), phone VARCHAR(15), gender VARCHAR(32), admin BOOLEAN, newsletter BOOLEAN)");
-			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, email, address, state, city, phone, gender, admin, newsletter) VALUES ('Admin', 'Admin', 'Admin', MD5('Admin'), 'jordan.chazottes@gmail.com', 'Admin', 'Admin', 'Admin', '4242424242', 'admin', '1', '1')");
-			statement.executeUpdate("Create TABLE IF NOT EXISTS JWEB.news (email NVARCHAR(320))");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.users (id INTEGER PRIMARY KEY AUTO_INCREMENT, firstName NVARCHAR(32), lastName NVARCHAR(32), userName NVARCHAR(32), pass NVARCHAR(32), email VARCHAR(320), address NVARCHAR(72), state NVARCHAR(72), city NVARCHAR(72), gender VARCHAR(32), newsletter BOOLEAN, admin BOOLEAN)");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.newsletters (id INTEGER PRIMARY KEY AUTO_INCREMENT, email NVARCHAR(64))");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.news (id INTEGER PRIMARY KEY AUTO_INCREMENT, author NVARCHAR(32),title NVARCHAR(64), content NVARCHAR(4096), date DATETIME)");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.products (id INTEGER PRIMARY KEY AUTO_INCREMENT, category NVARCHAR(32), name NVARCHAR(32), image NVARCHAR(64), price FLOAT, description NVARCHAR(512))");
+			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.reviews (id INTEGER PRIMARY KEY AUTO_INCREMENT, author NVARCHAR(32), content NVARCHAR(1024), productId INTEGER)");
+			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, email, address, state, city, gender, admin, newsletter) VALUES ('Admin', 'Admin', 'Admin', MD5('Admin'), 'jordan.chazottes@gmail.com', 'Admin', 'Admin', 'Admin', 'admin', '1', '1')");
 			System.out.println("Database succesfully created !");
 		}
 		catch (SQLException e)

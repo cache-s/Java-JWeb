@@ -23,7 +23,7 @@ public class AdminPanel extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String redirect = "";
-		
+
 		if (session.getAttribute(ATT_SESSION_USER) == null)
 			redirect = request.getContextPath() + PUBLIC_ACCESS;
 		else {
@@ -32,22 +32,24 @@ public class AdminPanel extends HttpServlet {
 			} else {
 				Administration admin = new Administration();
 				userList = admin.getUserslist(request);
+				request.setAttribute(ATT_SESSION_USER, session);
 				request.setAttribute(ATT_USERS, userList);
 				redirect = request.getContextPath() + PRIVATE_ACCESS;
 			}
 		}
 		if (redirect.equals(request.getContextPath() + PUBLIC_ACCESS))
-			response.sendRedirect(redirect);		
+			response.sendRedirect(redirect);
 		else
 			this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Administration admin = new Administration();
 		admin.execUpdate(request, userList);
 		userList = admin.getUserslist(request);
 		request.setAttribute(ATT_USERS, userList);
-        this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);
+		System.out.println("doget");
+		doGet(request, response);
+		//this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);
 	}
 }

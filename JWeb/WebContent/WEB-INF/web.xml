@@ -201,4 +201,49 @@
 		<url-pattern>/emailForm</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>emailSending</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.EmailSending</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emailSending</servlet-name>
+		<url-pattern>/emailSending</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>newsWriting</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.NewsWriting</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newsWriting</servlet-name>
+		<url-pattern>/newsWriting</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>lightsaberProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>lightsaberProduct</servlet-name>
+		<url-pattern>/shop/lightsaber</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>blasterProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>blasterProduct</servlet-name>
+		<url-pattern>/shop/blaster</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>spaceshipProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spaceshipProduct</servlet-name>
+		<url-pattern>/shop/spaceship</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
