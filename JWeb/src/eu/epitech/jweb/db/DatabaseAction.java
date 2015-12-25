@@ -12,6 +12,7 @@ import java.util.List;
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
+import eu.epitech.jweb.beans.News;
 import eu.epitech.jweb.beans.User;
 
 public class DatabaseAction {
@@ -173,7 +174,6 @@ public class DatabaseAction {
 	}
 
 	public void updateUser(User user) throws Exception {
-		System.out.println("Updating DB, user FN = " + user.getFirstName() + "user ID = " + user.getId());
 		try {
 			connect();
 			System.out.println(user.getUserName() + "  " + user.getPassword());
@@ -250,5 +250,25 @@ public class DatabaseAction {
 			for(int i = 0; i < ret.size(); i++) array[i] = ret.get(i);
 		}
 		return array;
+	}
+	
+	public void addNews(News news)
+	{
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO news (author, title, content, date) VALUES (?, ?, ?, CURDATE())");
+			ps.setString(1, news.getAuthor());
+			ps.setString(2, news.getTitle());
+			ps.setString(3, news.getContent());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

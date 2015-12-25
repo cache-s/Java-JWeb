@@ -200,4 +200,13 @@
 		<servlet-name>emailSending</servlet-name>
 		<url-pattern>/emailSending</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>newsWriting</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.NewsWriting</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newsWriting</servlet-name>
+		<url-pattern>/newsWriting</url-pattern>
+	</servlet-mapping>
 </web-app>

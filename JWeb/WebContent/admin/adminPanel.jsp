@@ -55,6 +55,25 @@
 			</table>
 		</form>
 	</div>
+	
+	<div class="news">
+		<form action="newsWriting" method="post">
+			<table border="0" width="35%" align="center">
+				<caption><h2>Write a News</h2></caption>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" size="50"/></td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td><textarea rows="10" cols="40" name="newsContent"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="Send"/></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 	<jsp:include page="../WEB-INF/footer.jsp" />
 </body>
 </html>
