@@ -13,6 +13,7 @@ import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
 
 import eu.epitech.jweb.beans.News;
+import eu.epitech.jweb.beans.Product;
 import eu.epitech.jweb.beans.User;
 
 public class DatabaseAction {
@@ -270,5 +271,35 @@ public class DatabaseAction {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public Product getProduct(String cat)
+	{
+		Product product = new Product();
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM products WHERE category='"+cat+"'");
+			if (result.next() == true)
+			{
+				product.setCategory(cat);
+				product.setDescription(result.getString("description"));
+				product.setId(result.getInt("id"));
+				product.setImage_url(result.getString("image"));
+				product.setName(result.getString("name"));
+				product.setPrice(result.getFloat("price"));
+			}
+			else
+				return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return product;
 	}
 }
