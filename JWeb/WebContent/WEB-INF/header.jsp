@@ -42,6 +42,8 @@
 				title="Manage your account">Profile</a></li>
 			<li><a href="aboutus"
 				title="Learn more about us">About us</a></li>
+			<li><a href="news"
+				title="Read the latest news about SaberForge">News</a></li>
 			<li><a href="contact"
 				title="Contact us">Contact</a></li>
 			<c:if test="${sessionScope.userSession.admin == '1'}">
