@@ -18,7 +18,7 @@ public class Products extends HttpServlet
 		LoadProduct lp = new LoadProduct();
 		Product product = lp.load(request);
 		request.setAttribute(ATT_PRODUCT, product);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/index").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/lightsabers.jsp").forward(request, response);
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

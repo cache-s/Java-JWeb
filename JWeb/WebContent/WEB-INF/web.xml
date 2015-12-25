@@ -126,22 +126,6 @@
 		<url-pattern>/aboutus</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>blasters</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Blasters</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>blasters</servlet-name>
-		<url-pattern>/blasters</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>spaceships</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Spaceships</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>spaceships</servlet-name>
-		<url-pattern>/spaceships</url-pattern>
-	</servlet-mapping>
-	<servlet>
 		<servlet-name>shop</servlet-name>
 		<servlet-class>eu.epitech.jweb.servlets.Shop</servlet-class>
 	</servlet>
@@ -164,14 +148,6 @@
 	<servlet-mapping>
 		<servlet-name>cart</servlet-name>
 		<url-pattern>/cart</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>lightsabers</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Lightsabers</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>lightsabers</servlet-name>
-		<url-pattern>/lightsabers</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -221,29 +197,29 @@
 	
 	<servlet>
 		<servlet-name>lightsaberProduct</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>lightsaberProduct</servlet-name>
-		<url-pattern>/shop/lightsaber</url-pattern>
+		<url-pattern>/lightsabers</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>blasterProduct</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>blasterProduct</servlet-name>
-		<url-pattern>/shop/blaster</url-pattern>
+		<url-pattern>/blasters</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>spaceshipProduct</servlet-name>
-		<servlet-class>eu.epitech.jweb.servlets.Product</servlet-class>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spaceshipProduct</servlet-name>
-		<url-pattern>/shop/spaceship</url-pattern>
+		<url-pattern>/spaceships</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
