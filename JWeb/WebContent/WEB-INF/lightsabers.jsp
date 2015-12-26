@@ -21,9 +21,8 @@
 	<div class="main">
 
 		<div class="productBuy">
-			<a class="imageBuy" href=""
-				style="background-image:url(${requestScope.product.image_url});"></a>
-			<div class="formContainer">
+			<a class="productCase" href="" style="background-image:url(${requestScope.product.image_url});"></a>
+			<div class="productCase">
 				<form action="https://www.paypal.com/" method="get">
 					<span class="productName">${requestScope.product.name}</span> <br />
 					<span class="productDescription">${requestScope.product.description}</span>
@@ -43,9 +42,8 @@
 					</div>
 				</form>
 			</div>
-
+			<jsp:include page="review.jsp" />
 		</div>
-		<jsp:include page="review.jsp" />
 	</div>
 
 	<jsp:include page="footer.jsp" />
