@@ -50,8 +50,6 @@
 			<li><a href="adminPanel"
 				title="adminPanel">Panel admin</a></li>
 			</c:if>
-			<li class="cart"><a href="cart"
-				title="Your cart">Cart (0)</a></li>
 		</ul>
 	</nav>
 </header>
