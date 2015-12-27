@@ -206,4 +206,5 @@
 		<servlet-name>products</servlet-name>
 		<url-pattern>/products</url-pattern>
 	</servlet-mapping>
+	
 </web-app>

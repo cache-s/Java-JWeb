@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import eu.epitech.jweb.mail.SendEmail;
 
 public class EmailSending extends HttpServlet {
-	private String from = "jordan.chazottes@gmail.com";
-	private String host = "smtp.gmail.com";
-
 	public static final String PRIVATE_ACCESS = "/admin/adminPanel.jsp";
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

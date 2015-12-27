@@ -15,14 +15,14 @@
 		<jsp:include page="header.jsp"/>
 	
 		<div class="main">
-			<form action="register" method="post" class="formulaire">
+			<form action="contact" method="post" class="formulaire">
 		    <h1>SaberForge - Contact us
 		        <span>We reply to all E-mails we get</span>
 		    </h1>
 
 		    <label>
 		        <span class="labelName">Name :</span>
-		        <input type="text" id="firstName" name="firstName" placeholder="Your Name" size="40" />
+		        <input type="text" id="firstName" name="name" placeholder="Your Name" size="40" />
 				<span class="error">${form.errors['name']}</span>
 		    </label>
 		    
@@ -34,13 +34,13 @@
 		    
 		    <label>
 		        <span class="labelName">Object :</span>
-                <input type="text" id="emailObject" name="emailObject" placeholder="Object" size="40" maxlength="20" />
+                <input type="text" id="emailObject" name="subject" placeholder="Object" size="40" maxlength="20" />
                 <span class="error">${form.errors['emailObject']}</span>
 		    </label>
 		    
 		    <label>
 		    	<span class="labelName">Message :</span><br/>
-				<textarea rows="10" cols="40" name="reviewContent"></textarea>
+				<textarea rows="10" cols="40" name="content"></textarea>
                 <span class="error">${form.errors['emailMessage']}</span>
 		    </label>
 				

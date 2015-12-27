@@ -17,7 +17,9 @@ public class SendEmail {
 
 	private static final String SUBJECT_INPUT = "subject";
 	private static final String CONTENT_INPUT = "content";
-
+	private static final String NAME_INPUT = "name";
+	private static final String EMAIL_INPUT = "email";
+	
 	public void sendNewMail(HttpServletRequest request) {
 		DatabaseAction db = new DatabaseAction();
 		Properties props = new Properties();
@@ -39,7 +41,31 @@ public class SendEmail {
 			message.addRecipients(Message.RecipientType.TO, db.getNewslettersList());
 			message.setSubject(getFromRequest(request, SUBJECT_INPUT));
 			message.setContent(getFromRequest(request, CONTENT_INPUT), "text/html");
-			// Sending
+			Transport.send(message);
+		} catch (MessagingException mex) {
+			mex.printStackTrace();
+		}
+	}
+
+	public void sendContact(HttpServletRequest request) {
+		Properties props = new Properties();
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication("noreply.saberforge@gmail.com", "passwordsaberforge");
+			}
+		});
+		
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("noreply.saberforge@gmail.com"));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress("noreply.saberforge@gmail.com"));
+			message.setSubject("Contact from : " + getFromRequest(request, NAME_INPUT) + " at "+ getFromRequest(request, EMAIL_INPUT) + " With object : " + getFromRequest(request, SUBJECT_INPUT));
+			message.setContent(getFromRequest(request, CONTENT_INPUT), "text/html");
 			Transport.send(message);
 		} catch (MessagingException mex) {
 			mex.printStackTrace();

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import eu.epitech.jweb.mail.SendEmail;
+
 public class Contact extends HttpServlet {
 	public static final String VIEW = "/WEB-INF/contact.jsp";
 	
@@ -17,5 +19,9 @@ public class Contact extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException
 	{
+		SendEmail mail = new SendEmail();
+		
+		mail.sendContact(request);
+		this.getServletContext().getRequestDispatcher( VIEW ).forward( request, response );
 	}	
 }
