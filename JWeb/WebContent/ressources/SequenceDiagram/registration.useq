@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true" automaticImage="JPEG">  
+  <object id="1" language="java" name="eu.epitech.jweb.beans.User" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/beans/User.java" binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="92" y="0"/>    
+    <execution id="2">      
+      <position height="253" width="131" x="5" y="113"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="eu.epitech.jweb.form.Registration" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/form/Registration.java" binary="false" label="registration" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="205" y="0"/>    
+    <execution id="4">      
+      <position height="205" width="121" x="140" y="137"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="24" width="0" x="0" y="197"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="24" width="0" x="0" y="272"/>    
+    </execution>  
+  </object>  
+  <object id="14" language="java" name="eu.epitech.jweb.db.DatabaseAction" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/db/DatabaseAction.java" binary="false" label="databaseAction" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="377" y="0"/>    
+    <execution id="7">      
+      <position height="24" width="133" x="265" y="184"/>    
+    </execution>    
+    <execution id="13">      
+      <position height="24" width="133" x="265" y="294"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="Registration()" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="find(java.lang.String,java.lang.String):eu.epitech.jweb.beans.User" asynchronous="false" 
+    x="343" y="177">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" operation="checkDB(eu.epitech.jweb.beans.User):void" asynchronous="false" x="208" y="137">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="10" operation="registerUser(javax.servlet.http.HttpServletRequest):eu.epitech.jweb.beans.User" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="12" operation="addUser(eu.epitech.jweb.beans.User):boolean" asynchronous="false" x="208" y="322">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </message>
+</sequence-diagram>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="eu.epitech.jweb.beans.User" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/beans/User.java" binary="false" label="user" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="182" y="0"/>    
+    <execution id="2">      
+      <position height="253" width="131" x="5" y="124"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="eu.epitech.jweb.form.Connection" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/form/Connection.java" binary="false" label="connection" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="280" y="0"/>    
+    <execution id="4">      
+      <position height="205" width="121" x="140" y="148"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="24" width="7" x="197" y="239"/>    
+    </execution>    
+    <execution id="11">      
+      <position height="24" width="7" x="197" y="281"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="eu.epitech.jweb.db.DatabaseAction" project="JWeb" 
+    file="/JWeb/src/eu/epitech/jweb/db/DatabaseAction.java" binary="false" label="databaseAction" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="335" y="0"/>    
+    <execution id="7">      
+      <position height="24" width="133" x="265" y="172"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="117" width="133" x="265" y="212"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="Connection()" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="6" operation="find(java.lang.String,java.lang.String):eu.epitech.jweb.beans.User" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="7"/>  
+  </message>  
+  <message id="8" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </message>  
+  <message id="13" operation="validateEmail(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="14" operation="validatePassword(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>
+</sequence-diagram>
