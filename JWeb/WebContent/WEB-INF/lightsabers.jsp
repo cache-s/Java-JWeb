@@ -19,7 +19,7 @@
 	
 		<div class="main">
 			<div class="productBuy">
-				<a class="productCase" href="" style="background-image:url(${requestScope.product.image_url});"></a>
+				<a class="productCase" href="" style="background-position:center;background-image:url(${requestScope.product.image_url});"></a>
 				<div class="productCase">
 					<form action="https://www.paypal.com/" method="get">
 						<span class="productName">${requestScope.product.name}</span> <br />

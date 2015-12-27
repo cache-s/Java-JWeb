@@ -45,11 +45,8 @@
             		<a class="lightsaber1" href="lightsabers"></a>
             		<p>
 						<span class="lightsaber1Name">${requestScope.lightsaber.name}</span>
-						<br/>
             			<span class="lightsaber1Description">${requestScope.lightsaber.description}</span>
-            			<br/><br/>
             			<span class="lightsaber1Price">${requestScope.lightsaber.price} SFC</span>
-            			<br/>
             		</p>
             	</div>
 
@@ -57,11 +54,8 @@
 					<a class="blaster1" href="blasters"></a>
             		<p>
 						<span class="blaster1Name">${requestScope.blaster.name}</span>
-						<br/>
             			<span class="blaster1Description">${requestScope.blaster.description}</span>
-            			<br/><br/>
             			<span class="blaster1Price">${requestScope.blaster.price} SFC</span>
-            			<br/>
             		</p>
 				</div>
 
@@ -69,11 +63,8 @@
 					<a class="spaceship1" href="spaceships"></a>
             		<p>
 						<span class="spaceship1Name">${requestScope.spaceship.name}</span>
-						<br/>
             			<span class="spaceship1Description">${requestScope.spaceship.description}</span>
-            			<br/><br/>
             			<span class="spaceship1Price">${requestScope.spaceship.price} SFC</span>
-            			<br/>
             		</p>
             	</div>
             </div>
