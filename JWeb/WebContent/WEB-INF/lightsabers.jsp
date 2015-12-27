@@ -21,13 +21,13 @@
 	<div class="main">
 
 		<div class="productBuy">
-			<a class="productCase" href="" style="background-image:url(${requestScope.product.image_url});"></a>
+			<a class="productCase" href=""
+				style="background-image:url(${requestScope.product.image_url});"></a>
 			<div class="productCase">
 				<form action="https://www.paypal.com/" method="get">
 					<span class="productName">${requestScope.product.name}</span> <br />
 					<span class="productDescription">${requestScope.product.description}</span>
-					<br />
-					<br />
+					<br /> <br />
 					<div class="priceBox">
 						<span class="productPrice">${requestScope.product.price}</span> <br />
 						<br /> <select>
@@ -37,14 +37,35 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 							</optgroup>
-						</select> <br />
-						<br /> <input type="submit" value="Buy now" />
+						</select> <br /> <br /> <input type="submit" value="Buy now" />
 					</div>
 				</form>
 			</div>
-			<jsp:include page="review.jsp" />
+			<div class="review">
+				<c:forEach var="r" items="${requestScope.reviewList}">
+					<div class="review">
+						<p class="reviewContent">${r.content}</p>
+						<p class="reviewInfos">${r.author}</p>
+					</div>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${empty sessionScope.userSession}">
+						<p>
+							Afin de laisser une review vous devez vous <a href="connect">connecter</a>
+							d'abord.
+						</p>
+					</c:when>
+					<c:otherwise>
+						<form action="product" method="post">
+							<textarea rows="10" cols="40" name="reviewContent"></textarea>
+							<br /> <input type="submit" value="Send" />
+						</form>
+					</c:otherwise>
+				</c:choose>
+			</div>
 		</div>
 	</div>
+
 
 	<jsp:include page="footer.jsp" />
 </body>
