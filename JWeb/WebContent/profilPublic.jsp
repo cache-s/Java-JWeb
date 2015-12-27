@@ -9,7 +9,7 @@
 		<jsp:include page="WEB-INF/header.jsp"/>
 	
 		<div class="main">
-        	<p>Vous n'avez pas accès à l'espace restreint : vous devez vous <a href="connect">connecter</a> d'abord. </p>
+        	<p>To access to your profile please <a href="connect">connect</a>. </p>
 		</div>
 	
 		<jsp:include page="WEB-INF/footer.jsp"/>

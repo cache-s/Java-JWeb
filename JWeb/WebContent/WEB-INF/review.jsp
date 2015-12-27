@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8" %>
+<%@ page pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="productCase">
@@ -19,14 +19,14 @@
 	<c:choose>
 		<c:when test="${empty sessionScope.userSession}">
 			<p>
-				Afin de laisser une review vous devez vous <a href="connect">connecter</a>
-				d'abord.
+				You have to <a href="connect">connect</a> before you can write a review.
 			</p>
 		</c:when>
 		<c:otherwise>
 			<form class="writeReview" " action="products" method="post">
 				<textarea rows="5" cols="40" name="reviewContent"></textarea>
-				<br /> <input type="submit" name ="review${requestScope.product.category}" value="Send review" />
+				<br /> <input type="submit"
+					name="review${requestScope.product.category}" value="Send review" />
 			</form>
 		</c:otherwise>
 	</c:choose>

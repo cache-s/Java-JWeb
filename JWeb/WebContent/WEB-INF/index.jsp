@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,45 +44,36 @@
             	<div class="product">
             		<a class="lightsaber1" href="lightsabers"></a>
             		<p>
-						<span class="lightsaber1Name">Nom du produit</span>
+						<span class="lightsaber1Name">${requestScope.lightsaber.name}</span>
 						<br/>
-            			<span class="lightsaber1Description">Description du produit</span>
+            			<span class="lightsaber1Description">${requestScope.lightsaber.description}</span>
             			<br/><br/>
-            			<span class="lightsaber1Price">Prix</span>
+            			<span class="lightsaber1Price">${requestScope.lightsaber.price}</span>
             			<br/>
-            			<span class="lightsaber1Maker">Fabricant</span>
-            			<br/>
-            			<span class="lightsaber1Delay">Delai de livraison estime</span>
             		</p>
             	</div>
 
             	<div class="product">
 					<a class="blaster1" href="blasters"></a>
             		<p>
-						<span class="blaster1Name">Nom du produit</span>
+						<span class="blaster1Name">${requestScope.blaster.name}</span>
 						<br/>
-            			<span class="blaster1Description">Description du produit</span>
+            			<span class="blaster1Description">${requestScope.blaster.description}</span>
             			<br/><br/>
-            			<span class="blaster1Price">Prix</span>
+            			<span class="blaster1Price">${requestScope.blaster.price}</span>
             			<br/>
-            			<span class="blaster1Maker">Fabricant</span>
-            			<br/>
-            			<span class="blaster1Delay">Delai de livraison estime</span>
             		</p>
 				</div>
 
             	<div class="product">
 					<a class="spaceship1" href="spaceships"></a>
             		<p>
-						<span class="spaceship1Name">Nom du produit</span>
+						<span class="spaceship1Name">${requestScope.spaceship.name}</span>
 						<br/>
-            			<span class="spaceship1Description">Description du produit</span>
+            			<span class="spaceship1Description">${requestScope.spaceship.description}</span>
             			<br/><br/>
-            			<span class="spaceship1Price">Prix</span>
+            			<span class="spaceship1Price">${requestScope.spaceship.price}</span>
             			<br/>
-            			<span class="spaceship1Maker">Fabricant</span>
-            			<br/>
-            			<span class="spaceship1Delay">Delai de livraison estime</span>
             		</p>
             	</div>
             </div>
