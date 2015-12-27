@@ -15,6 +15,7 @@ import javax.mail.internet.InternetAddress;
 import eu.epitech.jweb.beans.News;
 import eu.epitech.jweb.beans.Product;
 import eu.epitech.jweb.beans.User;
+import eu.epitech.jweb.beans.Review;
 
 public class DatabaseAction {
 	private static final String URL = "jdbc:mysql://localhost:3306/JWeb";
@@ -334,4 +335,56 @@ public class DatabaseAction {
 		}
 		return ret;
 	}
+	
+	public void addReview(Review review) {
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO reviews (author, content, productId) VALUES (?, ?, ?)");
+			ps.setString(1, review.getAuthor());
+			ps.setString(2, review.getContent());
+			ps.setLong(3, review.getProductId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public List<Review> getReviews(int curId)
+	{
+		List<Review> ret = new ArrayList<Review>();
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM reviews WHERE productID=?");
+			ps.setInt(1, curId);
+			ResultSet result = ps.executeQuery();
+			while (result.next() == true) {
+				Review review = new Review();
+				review.setId(result.getInt("id"));
+				review.setAuthor(result.getString("author"));
+				review.setContent(result.getString("content"));
+				ret.add(review);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	
 }

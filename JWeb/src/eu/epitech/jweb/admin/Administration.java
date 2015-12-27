@@ -17,7 +17,6 @@ public class Administration {
 	public void execUpdate(HttpServletRequest request, List<User> userList)
 	{
 		for (User user : userList) {
-			System.out.println("Hello" + user.getEmail());
 			if ((request.getParameter("set" + user.getEmail())) != null)
 				setAdmin(user.getEmail());
 			if ((request.getParameter("unset" + user.getEmail())) != null)
@@ -27,13 +26,11 @@ public class Administration {
 	
 	public void setAdmin(String user)
 	{
-		System.out.println("set" + user);
 		db.modifyAdmin(user, "1");
 	}
 	
 	public void unsetAdmin(String user)
 	{
-		System.out.println("unset" + user);
 		db.modifyAdmin(user, "0");
 	}
 }
