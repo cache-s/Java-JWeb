@@ -27,7 +27,7 @@
 						<br />
 						<br />
 						<div class="priceBox">
-							<span class="productPrice">${requestScope.product.price}</span> <br />
+							<span class="productPrice">${requestScope.product.price} SFC</span> <br />
 							<br /> <select>
 								<optgroup label="How much do you want to buy">
 									<option value="1">1</option>

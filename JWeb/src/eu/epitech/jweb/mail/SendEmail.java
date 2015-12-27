@@ -29,23 +29,20 @@ public class SendEmail {
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("jordan.chazottes@gmail.com", "jordana3bc4");// change
-																								// accordingly
+				return new PasswordAuthentication("noreply.saberforge@gmail.com", "passwordsaberforge");
 			}
 		});
 
 		try {
 			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("jordan.chazottes@gmail.com"));
+			message.setFrom(new InternetAddress("noreply.saberforge@gmail.com"));
 			message.addRecipients(Message.RecipientType.TO, db.getNewslettersList());
 			message.setSubject(getFromRequest(request, SUBJECT_INPUT));
 			message.setContent(getFromRequest(request, CONTENT_INPUT), "text/html");
 			// Sending
 			Transport.send(message);
-			System.out.println("Sent message successfully....");
 		} catch (MessagingException mex) {
 			mex.printStackTrace();
-			System.out.println("Error: unable to send message....");
 		}
 	}
 

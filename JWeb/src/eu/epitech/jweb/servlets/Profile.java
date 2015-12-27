@@ -34,14 +34,14 @@ public class Profile extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		User curUser = (User) session.getAttribute(ATT_USER_SESSION);
-		profil.updateUser(curUser, request);
-
-		request.setAttribute(ATT_FORM, profil);
-		request.setAttribute(ATT_USER, curUser);
 		if (session.getAttribute(ATT_USER_SESSION) == null) {
 			response.sendRedirect(request.getContextPath() + PUBLIC_ACCESS);
 		} else {
+			User curUser = (User) session.getAttribute(ATT_USER_SESSION);
+			profil.updateUser(curUser, request);
+
+			request.setAttribute(ATT_FORM, profil);
+			request.setAttribute(ATT_USER, curUser);
 			curUser = profil.updateProfile(curUser.getEmail());
 			session.setAttribute(ATT_USER_SESSION, curUser);
 			this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);

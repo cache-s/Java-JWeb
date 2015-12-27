@@ -21,8 +21,7 @@
 			<c:forEach var="user" items="${requestScope.users}">
 				<c:if test="${sessionScope.userSession.email != user.email}">
     			${user.firstName} 
-    			${user.lastName}
-				${user.admin} :
+    			${user.lastName} :
     			<c:choose>
 						<c:when test="${user.admin == '0'}">
 							<button type="submit" name="set${user.email}">set Admin</button>

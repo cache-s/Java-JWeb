@@ -48,7 +48,7 @@
 						<br/>
             			<span class="lightsaber1Description">${requestScope.lightsaber.description}</span>
             			<br/><br/>
-            			<span class="lightsaber1Price">${requestScope.lightsaber.price}</span>
+            			<span class="lightsaber1Price">${requestScope.lightsaber.price} SFC</span>
             			<br/>
             		</p>
             	</div>
@@ -60,7 +60,7 @@
 						<br/>
             			<span class="blaster1Description">${requestScope.blaster.description}</span>
             			<br/><br/>
-            			<span class="blaster1Price">${requestScope.blaster.price}</span>
+            			<span class="blaster1Price">${requestScope.blaster.price} SFC</span>
             			<br/>
             		</p>
 				</div>
@@ -72,7 +72,7 @@
 						<br/>
             			<span class="spaceship1Description">${requestScope.spaceship.description}</span>
             			<br/><br/>
-            			<span class="spaceship1Price">${requestScope.spaceship.price}</span>
+            			<span class="spaceship1Price">${requestScope.spaceship.price} SFC</span>
             			<br/>
             		</p>
             	</div>

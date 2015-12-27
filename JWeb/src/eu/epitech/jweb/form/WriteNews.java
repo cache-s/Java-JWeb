@@ -18,7 +18,6 @@ public class WriteNews {
 		News news = new News();
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute(ATT_USER_SESSION);
-		System.out.println(user.getUserName());
 		news.setAuthor(user.getUserName());
 		news.setTitle(getFromRequest(request, TITLE_INPUT));
 		news.setContent(getFromRequest(request, CONTENT_INPUT));

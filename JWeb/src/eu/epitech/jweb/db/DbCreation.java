@@ -34,17 +34,21 @@ public class DbCreation
 			statement.executeUpdate("INSERT INTO JWEB.users (firstName, lastName, userName, pass, email, address, state, city, gender, admin, newsletter) VALUES ('Admin', 'Admin', 'Admin', MD5('Admin'), 'jordan.chazottes@gmail.com', 'Admin', 'Admin', 'Admin', 'admin', '1', '1')");
 
 			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.newsletters (id INTEGER PRIMARY KEY AUTO_INCREMENT, email NVARCHAR(64))");
+			statement.executeUpdate("INSERT INTO JWEB.newsletters (email) VALUES ('jordan.chazottes@gmail.com')");
 			
 			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.news (id INTEGER PRIMARY KEY AUTO_INCREMENT, author NVARCHAR(32),title NVARCHAR(64), content NVARCHAR(4096), date DATETIME)");
-			statement.executeUpdate("INSERT INTO JWEB.news (author, title, content, date) VALUES ('Admin', 'News Title', 'News Content', CURDATE());");
-			statement.executeUpdate("INSERT INTO JWEB.news (author, title, content, date) VALUES ('Admin', 'News Title2', 'News Content2', CURDATE());");
+			statement.executeUpdate("INSERT INTO JWEB.news (author, title, content, date) VALUES ('Admin', 'Website creation', 'Saberforge team is happy to present you this new website !', CURDATE());");
+			statement.executeUpdate("INSERT INTO JWEB.news (author, title, content, date) VALUES ('Admin', 'First news', 'Saberforge team corected many bugs !', CURDATE());");
 			
 			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.products (id INTEGER PRIMARY KEY AUTO_INCREMENT, category NVARCHAR(32), name NVARCHAR(32), image NVARCHAR(64), price FLOAT, description NVARCHAR(512))");
-			statement.executeUpdate("INSERT INTO jweb.products (category, name, image, price, description) VALUES ('lightsabers', 'lightsaber name','../JWeb/ressources/images/lightsaber_shop.jpg', 4242, 'lightsaber desc')");
-			statement.executeUpdate("INSERT INTO jweb.products (category, name, image, price, description) VALUES ('blasters', 'blaster name','../JWeb/ressources/images/blaster_shop.jpg', 4243, 'blaster desc')");
-			statement.executeUpdate("INSERT INTO jweb.products (category, name, image, price, description) VALUES ('spaceships', 'spaceships name','../JWeb/ressources/images/spaceships_shop.jpg', 8484, 'spaceships desc')");
+			statement.executeUpdate("INSERT INTO JWEB.products (category, name, image, price, description) VALUES ('lightsabers', 'Lightsaber','../JWeb/ressources/images/lightsaber_shop.jpg', 73, 'A simple and powerfull lightsaber, can be used as a flashlight too !')");
+			statement.executeUpdate("INSERT INTO JWEB.products (category, name, image, price, description) VALUES ('blasters', 'Blaster','../JWeb/ressources/images/blaster_shop.jpg', 176, 'You dont like this guy ?, just kill him with this awesome blaster !')");
+			statement.executeUpdate("INSERT INTO JWEB.products (category, name, image, price, description) VALUES ('spaceships', 'Spaceship','../JWeb/ressources/images/spaceships_shop.jpg', 9999, 'A great spaceship for all your travels !')");
 			
 			statement.executeUpdate("CREATE TABLE IF NOT EXISTS JWEB.reviews (id INTEGER PRIMARY KEY AUTO_INCREMENT, author NVARCHAR(32), content NVARCHAR(1024), productId INTEGER)");
+			statement.executeUpdate("INSERT INTO JWEB.reviews (author, content, productId) VALUES ('Kylo Ren', '[SPOIL] Totally worth buying, i killed my father thanks to this ![/SPOIL]', 1)");
+			statement.executeUpdate("INSERT INTO JWEB.reviews (author, content, productId) VALUES ('Boba Fett', 'Pretty nice gun to kill Jedis !', 2)");
+			statement.executeUpdate("INSERT INTO JWEB.reviews (author, content, productId) VALUES ('Darth Vador', 'Meh ... I do prefer my death star, slower but deals pretty good damages', 3)");
 			System.out.println("Database succesfully created !");
 		}
 		catch (SQLException e)

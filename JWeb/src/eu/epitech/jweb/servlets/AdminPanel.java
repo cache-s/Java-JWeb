@@ -48,8 +48,6 @@ public class AdminPanel extends HttpServlet {
 		admin.execUpdate(request, userList);
 		userList = admin.getUserslist(request);
 		request.setAttribute(ATT_USERS, userList);
-		System.out.println("doget");
 		doGet(request, response);
-		//this.getServletContext().getRequestDispatcher(PRIVATE_ACCESS).forward(request, response);
 	}
 }

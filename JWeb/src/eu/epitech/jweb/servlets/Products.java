@@ -26,7 +26,6 @@ public class Products extends HttpServlet {
 		LoadProduct lp = new LoadProduct();
 		Product product = lp.load(request);
 		List<Review> reviewList = null;
-		System.out.println(getCurId(request));
 		reviewList = db.getReviews(getCurId(request));
 		request.setAttribute(ATT_REVIEW, reviewList);
 		request.setAttribute(ATT_PRODUCT, product);

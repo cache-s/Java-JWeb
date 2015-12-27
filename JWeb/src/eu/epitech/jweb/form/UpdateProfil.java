@@ -86,6 +86,7 @@ public class UpdateProfil {
 		newUser.setState(state);
 		newUser.setCity(city);
 		newUser.setGender(gender);
+		newUser.setEmail(curUser.getEmail());
 		newUser.setNewsletter(newsletter);
 
 		try {

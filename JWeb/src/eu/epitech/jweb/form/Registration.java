@@ -86,13 +86,6 @@ public class Registration {
 		newUser.setState(state);
 		newUser.setCity(city);
 		newUser.setGender(gender);
-
-		try {
-			checkNews(newsletter);
-		} catch (Exception e) {
-			errors.put(NEWSLETTER_INPUT, e.getMessage());
-		}
-
 		newUser.setNewsletter(newsletter);
 
 		if (errors.isEmpty()) {
@@ -108,10 +101,6 @@ public class Registration {
 		else
 			result = "Register failure.";
 		return newUser;
-	}
-
-	private void checkNews(String value) throws Exception {
-		System.out.println(value);
 	}
 
 	private void checkDB(User user) throws Exception {

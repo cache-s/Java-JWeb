@@ -18,7 +18,7 @@ import eu.epitech.jweb.beans.User;
 import eu.epitech.jweb.beans.Review;
 
 public class DatabaseAction {
-	private static final String URL = "jdbc:mysql://localhost:3306/JWeb";
+	private static final String URL = "jdbc:mysql://localhost:3306/jweb";
 	private static final String USER = "root";
 	private static final String PASS = "root";
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
@@ -101,11 +101,28 @@ public class DatabaseAction {
 		return true;
 	}
 
-	private void addNewsletter(String email) throws SQLException {
-		PreparedStatement ps;
-		ps = connection.prepareStatement("INSERT INTO newsletters (email) VALUES (?)");
-		ps.setString(1, email);
-		ps.executeUpdate();
+	private void addNewsletter(String email) {
+		if (find("email", email) == null) {
+			try {
+				PreparedStatement ps;
+				connect();
+				System.out.println(email);
+				ps = connection.prepareStatement("INSERT INTO newsletters (email) VALUES (?)");
+				ps.setString(1, email);
+				ps.executeUpdate();
+				close();
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	private void delNewsletter(String email) throws SQLException {
@@ -178,8 +195,8 @@ public class DatabaseAction {
 	public void updateUser(User user) throws Exception {
 		try {
 			connect();
-			System.out.println(user.getUserName() + "  " + user.getPassword());
-			PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET firstName=?, lastName=?, userName=?, pass=?, address=?, state=?, city=?, gender=?, newsletter=? WHERE id=?");
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"UPDATE users SET firstName=?, lastName=?, userName=?, pass=?, address=?, state=?, city=?, gender=?, newsletter=? WHERE id=?");
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getUserName());
@@ -193,7 +210,7 @@ public class DatabaseAction {
 				addNewsletter(user.getEmail());
 			else
 				delNewsletter(user.getEmail());
-			preparedStatement.setLong(10, user.getId());	
+			preparedStatement.setLong(10, user.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -246,19 +263,19 @@ public class DatabaseAction {
 				e.printStackTrace();
 			}
 		}
-		if (ret != null)
-		{	
+		if (ret != null) {
 			array = new Address[ret.size()];
-			for(int i = 0; i < ret.size(); i++) array[i] = ret.get(i);
+			for (int i = 0; i < ret.size(); i++)
+				array[i] = ret.get(i);
 		}
 		return array;
 	}
-	
-	public void addNews(News news)
-	{
+
+	public void addNews(News news) {
 		try {
 			connect();
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO news (author, title, content, date) VALUES (?, ?, ?, CURDATE())");
+			PreparedStatement ps = connection
+					.prepareStatement("INSERT INTO news (author, title, content, date) VALUES (?, ?, ?, CURDATE())");
 			ps.setString(1, news.getAuthor());
 			ps.setString(2, news.getTitle());
 			ps.setString(3, news.getContent());
@@ -273,24 +290,21 @@ public class DatabaseAction {
 			}
 		}
 	}
-	
-	public Product getProduct(String cat)
-	{
+
+	public Product getProduct(String cat) {
 		Product product = new Product();
 		try {
 			connect();
 			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery("SELECT * FROM products WHERE category='"+cat+"'");
-			if (result.next() == true)
-			{
+			ResultSet result = statement.executeQuery("SELECT * FROM products WHERE category='" + cat + "'");
+			if (result.next() == true) {
 				product.setCategory(cat);
 				product.setDescription(result.getString("description"));
 				product.setId(result.getInt("id"));
 				product.setImage_url(result.getString("image"));
 				product.setName(result.getString("name"));
 				product.setPrice(result.getFloat("price"));
-			}
-			else
+			} else
 				return null;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -303,7 +317,7 @@ public class DatabaseAction {
 		}
 		return product;
 	}
-	
+
 	public List<News> getNews() {
 		List<News> ret = new ArrayList<News>();
 		try {
@@ -335,11 +349,12 @@ public class DatabaseAction {
 		}
 		return ret;
 	}
-	
+
 	public void addReview(Review review) {
 		try {
 			connect();
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO reviews (author, content, productId) VALUES (?, ?, ?)");
+			PreparedStatement ps = connection
+					.prepareStatement("INSERT INTO reviews (author, content, productId) VALUES (?, ?, ?)");
 			ps.setString(1, review.getAuthor());
 			ps.setString(2, review.getContent());
 			ps.setLong(3, review.getProductId());
@@ -355,8 +370,7 @@ public class DatabaseAction {
 		}
 	}
 
-	public List<Review> getReviews(int curId)
-	{
+	public List<Review> getReviews(int curId) {
 		List<Review> ret = new ArrayList<Review>();
 		try {
 			connect();
@@ -385,6 +399,5 @@ public class DatabaseAction {
 		}
 		return ret;
 	}
-	
-	
+
 }
