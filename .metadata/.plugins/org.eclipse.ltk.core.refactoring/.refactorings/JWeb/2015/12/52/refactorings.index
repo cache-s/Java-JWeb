@@ -1,0 +1,30 @@
+1451067042870	Copy file
+1451067072387	Delete element
+1451067073496	Delete element
+1451085558364	Encapsulate field 'id'
+1451085572165	Encapsulate field 'author'
+1451085576673	Encapsulate field 'content'
+1451085581198	Encapsulate field 'productId'
+1451086944376	Rename type 'reviewWriting'
+1451174833404	Delete element
+1451182968541	Delete element
+1451190495199	Copy compilation unit
+1451190670940	Delete elements
+1451191439862	Delete element
+1451191635168	Delete element
+1451191638323	Delete element
+1451191640195	Delete element
+1451191641594	Delete element
+1451191642514	Delete element
+1451191643506	Delete element
+1451239474208	Copy compilation unit
+1451239517289	Delete element
+1451239527025	Copy file
+1451240691259	Rename resource 'seq.jpg'
+1451240712287	Rename resource 'seq.useq'
+1451240733587	Delete element
+1451240739202	Delete element
+1451241330633	Move 2 resources to 'SequenceDiagram'
+1451241333774	Move 'model.ucls' to 'ClassDiagram'
+1451241931811	Delete element
+1451242710726	Move 'db_layout.png' to 'db_info'

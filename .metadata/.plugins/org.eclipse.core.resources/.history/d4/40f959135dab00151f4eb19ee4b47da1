@@ -1,0 +1,5 @@
+package eu.epitech.jweb.product;
+
+public class NewReview {
+
+}

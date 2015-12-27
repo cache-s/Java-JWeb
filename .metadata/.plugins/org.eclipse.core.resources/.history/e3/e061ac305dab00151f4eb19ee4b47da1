@@ -1,0 +1,12 @@
+package eu.epitech.jweb.product;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class NewReview
+{
+	public void create(HttpServletRequest request)
+	{
+		DatabaseAction db = new DatabaseAction();
+	}
+
+}

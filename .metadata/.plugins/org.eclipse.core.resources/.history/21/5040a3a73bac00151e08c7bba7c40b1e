@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignore</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+   <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>jordan.chazottes@gmail.com</param-value>
+    </context-param>
+ 
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>jordana3bc4</param-value>
+    </context-param>
+ 
+    <welcome-file-list>
+        <welcome-file>EmailForm.jsp</welcome-file>
+    </welcome-file-list>
+
+	<servlet>
+		<servlet-name>index</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Index</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Register</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>register</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>connect</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Connect</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>connect</servlet-name>
+		<url-pattern>/connect</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Disconnect</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Disconnect</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Disconnect</servlet-name>
+		<url-pattern>/disconnect</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>RestrictionFilter</filter-name>
+		<filter-class>eu.epitech.jweb.filters.RestrictionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>RestrictionFilter</filter-name>
+		<url-pattern>/private/*</url-pattern>
+	</filter-mapping>
+
+<filter>
+		<filter-name>AdminFilter</filter-name>
+		<filter-class>eu.epitech.jweb.filters.AdminFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Profile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>newsletter</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Newsletter</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newsletter</servlet-name>
+		<url-pattern>/newsletter</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>aboutus</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Aboutus</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aboutus</servlet-name>
+		<url-pattern>/aboutus</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>shop</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Shop</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>shop</servlet-name>
+		<url-pattern>/shop</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>contact</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Contact</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>contact</servlet-name>
+		<url-pattern>/contact</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>cart</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Cart</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cart</servlet-name>
+		<url-pattern>/cart</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>news</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.News</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>news</servlet-name>
+		<url-pattern>/news</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>adminPanel</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.AdminPanel</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adminPanel</servlet-name>
+		<url-pattern>/adminPanel</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>emailForm</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.EmailForm</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emailForm</servlet-name>
+		<url-pattern>/emailForm</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>emailSending</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.EmailSending</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>emailSending</servlet-name>
+		<url-pattern>/emailSending</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>newsWriting</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.NewsWriting</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>newsWriting</servlet-name>
+		<url-pattern>/newsWriting</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>lightsaberProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>lightsaberProduct</servlet-name>
+		<url-pattern>/lightsabers</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>blasterProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>blasterProduct</servlet-name>
+		<url-pattern>/blasters</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>spaceshipProduct</servlet-name>
+		<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spaceshipProduct</servlet-name>
+		<url-pattern>/spaceships</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+	<servlet-name>products</servlet-name>
+	<servlet-class>eu.epitech.jweb.servlets.Products</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>products</servlet-name>
+	<url-pattern>/products</url-pattern>
+</servlet-mapping>
+</web-app>

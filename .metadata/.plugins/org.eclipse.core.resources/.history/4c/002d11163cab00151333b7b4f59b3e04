@@ -1,0 +1,24 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<div class="main">
+	<c:forEach var="n" items="${requestScope.reviewList}">
+		<div class="news">
+			<p class="newsContent">${n.content}</p>
+			<p class="newsInfos">${n.author}</p>
+		</div>
+	</c:forEach>
+<c:choose>
+	<c:when test="${empty sessionScope.userSession}">
+		<p>
+			Afin de laisser une review vous devez vous <a href="connect">connecter</a>
+			d'abord.
+		</p>
+	</c:when>
+	<c:otherwise>
+		<textarea rows="10" cols="40" name="reviewContent"></textarea>
+		<br />
+		<input type="submit" value="Send" />
+
+	</c:otherwise>
+</c:choose>
+</div>

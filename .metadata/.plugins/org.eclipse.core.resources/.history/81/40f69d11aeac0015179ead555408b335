@@ -1,0 +1,390 @@
+package eu.epitech.jweb.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
+import eu.epitech.jweb.beans.News;
+import eu.epitech.jweb.beans.Product;
+import eu.epitech.jweb.beans.User;
+import eu.epitech.jweb.beans.Review;
+
+public class DatabaseAction {
+	private static final String URL = "jdbc:mysql://localhost:3306/JWeb";
+	private static final String USER = "root";
+	private static final String PASS = "root";
+	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	Connection connection = null;
+
+	private void connect() throws Exception {
+		Class.forName(DRIVER);
+		connection = DriverManager.getConnection(URL, USER, PASS);
+	}
+
+	private void close() throws Exception {
+		try {
+			if (connection != null)
+				connection.close();
+		} catch (SQLException e) {
+			System.err.println(e);
+		}
+	}
+
+	public boolean addUser(User user) {
+		try {
+			if (find("email", user.getEmail()) == null) {
+				this.connect();
+				PreparedStatement preparedStatement = connection.prepareStatement(
+						"INSERT INTO users (firstName, lastName, userName, pass, email, address, state, city, gender, newsletter, admin) VALUES (?, ?, ?, MD5(?), ?, ?, ?, ?, ?, ?, ?)");
+				preparedStatement.setString(1, user.getFirstName());
+				preparedStatement.setString(2, user.getLastName());
+				preparedStatement.setString(3, user.getUserName());
+				preparedStatement.setString(4, user.getPassword());
+				preparedStatement.setString(5, user.getEmail());
+				preparedStatement.setString(6, user.getAddress());
+				preparedStatement.setString(7, user.getState());
+				preparedStatement.setString(8, user.getCity());
+				preparedStatement.setString(9, user.getGender());
+				preparedStatement.setString(10, user.getNewsletter());
+				preparedStatement.setString(11, "0");
+				if (user.getNewsletter().equals("1"))
+					addNewsletter(user.getEmail());
+				preparedStatement.executeUpdate();
+			} else {
+				close();
+				return false;
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+
+	public boolean setNewsletter(String email, String action) {
+		try {
+			this.connect();
+			if (action.equals("add")) {
+				if (find("email", email) == null)
+					addNewsletter(email);
+				else
+					return false;
+			} else if (action.equals("del")) {
+				delNewsletter(email);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return true;
+	}
+
+	private void addNewsletter(String email) throws SQLException {
+		PreparedStatement ps;
+		System.out.println("Adding");
+		ps = connection.prepareStatement("INSERT INTO newsletters (email) VALUES (?)");
+		ps.setString(1, email);
+		ps.executeUpdate();
+	}
+
+	private void delNewsletter(String email) throws SQLException {
+		PreparedStatement ps;
+		ps = connection.prepareStatement("DELETE FROM newsletters WHERE email = ?");
+		ps.setString(1, email);
+		ps.executeUpdate();
+	}
+
+	public User find(String attribute, String value) {
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM users WHERE " + attribute + "='" + value + "'");
+			if (result.next() == false) {
+				return null;
+			} else {
+				User ret = new User(result.getInt("id"), result.getString("firstName"), result.getString("lastName"),
+						result.getString("email"), result.getString("userName"), result.getString("pass"),
+						result.getString("address"), result.getString("state"), result.getString("city"),
+						result.getString("gender"), result.getString("admin"), result.getString("newsletter"));
+				return ret;
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public List<User> getUsers() {
+		List<User> ret = new ArrayList<User>();
+		User user;
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+
+			ResultSet result = statement.executeQuery("SELECT * FROM users");
+			while (result.next() == true) {
+				user = new User(result.getInt("id"), result.getString("firstName"), result.getString("lastName"),
+						result.getString("email"), result.getString("userName"), result.getString("pass"),
+						result.getString("address"), result.getString("state"), result.getString("city"),
+						result.getString("gender"), result.getString("admin"), result.getString("newsletter"));
+				ret.add(user);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+
+	public void updateUser(User user) throws Exception {
+		try {
+			connect();
+			PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET firstName=?, lastName=?, userName=?, pass=?, address=?, state=?, city=?, gender=?, newsletter=? WHERE id=?");
+			preparedStatement.setString(1, user.getFirstName());
+			preparedStatement.setString(2, user.getLastName());
+			preparedStatement.setString(3, user.getUserName());
+			preparedStatement.setString(4, user.getPassword());
+			preparedStatement.setString(5, user.getAddress());
+			preparedStatement.setString(6, user.getState());
+			preparedStatement.setString(7, user.getCity());
+			preparedStatement.setString(8, user.getGender());
+			preparedStatement.setString(9, user.getNewsletter());
+			if (user.getNewsletter().equals("1"))
+				addNewsletter(user.getEmail());
+			else
+				delNewsletter(user.getEmail());
+			preparedStatement.setLong(10, user.getId());	
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+
+	public void modifyAdmin(String email, String value) {
+		try {
+			connect();
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("UPDATE users SET admin=? WHERE email='" + email + "'");
+			preparedStatement.setString(1, value);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public Address[] getNewslettersList() {
+		String email;
+		List<Address> ret = new ArrayList<Address>();
+		Address[] array = null;
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM jweb.newsletters");
+			while (result.next() == true) {
+				email = result.getString("email");
+				ret.add(new InternetAddress(email));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (ret != null)
+		{	
+			array = new Address[ret.size()];
+			for(int i = 0; i < ret.size(); i++) array[i] = ret.get(i);
+		}
+		return array;
+	}
+	
+	public void addNews(News news)
+	{
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO news (author, title, content, date) VALUES (?, ?, ?, CURDATE())");
+			ps.setString(1, news.getAuthor());
+			ps.setString(2, news.getTitle());
+			ps.setString(3, news.getContent());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public Product getProduct(String cat)
+	{
+		Product product = new Product();
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+			ResultSet result = statement.executeQuery("SELECT * FROM products WHERE category='"+cat+"'");
+			if (result.next() == true)
+			{
+				product.setCategory(cat);
+				product.setDescription(result.getString("description"));
+				product.setId(result.getInt("id"));
+				product.setImage_url(result.getString("image"));
+				product.setName(result.getString("name"));
+				product.setPrice(result.getFloat("price"));
+			}
+			else
+				return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return product;
+	}
+	
+	public List<News> getNews() {
+		List<News> ret = new ArrayList<News>();
+		try {
+			connect();
+			Statement statement = connection.createStatement();
+
+			ResultSet result = statement.executeQuery("SELECT * FROM news");
+			while (result.next() == true) {
+				News news = new News();
+				news.setId(result.getInt("id"));
+				news.setAuthor(result.getString("author"));
+				news.setTitle(result.getString("title"));
+				news.setContent(result.getString("content"));
+				news.setDate(result.getDate("date"));
+				ret.add(news);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	public void addReview(Review review) {
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO reviews (author, content, productId) VALUES (?, ?, ?)");
+			ps.setString(1, review.getAuthor());
+			ps.setString(2, review.getContent());
+			ps.setLong(3, review.getProductId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public List<Review> getReviews(int curId)
+	{
+		List<Review> ret = new ArrayList<Review>();
+		try {
+			connect();
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM reviews WHERE productID=?");
+			ps.setInt(1, curId);
+			ResultSet result = ps.executeQuery();
+			while (result.next() == true) {
+				Review review = new Review();
+				review.setId(result.getInt("id"));
+				review.setAuthor(result.getString("author"));
+				review.setContent(result.getString("content"));
+				ret.add(review);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return ret;
+	}
+	
+	
+}

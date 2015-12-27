@@ -1,0 +1,27 @@
+package eu.epitech.jweb.servlets;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class reviewWriting extends HttpServlet {
+	public static final String ATT_SESSION_USER = "userSession";
+	public static final String PUBLIC_ACCESS = "/profilPublic.jsp";
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		HttpSession session = request.getSession();
+		String redirect = "";
+		if (session.getAttribute(ATT_SESSION_USER) == null)
+			redirect = request.getContextPath() + PUBLIC_ACCESS;
+		else
+		{
+			NewReview review = new NewReview();
+			review.create(request);
+		}
+	}
+}
