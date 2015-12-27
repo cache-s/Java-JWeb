@@ -162,6 +162,93 @@ header a:hover {
 	min-height:			473px;
 }
 
+.lightsaber1Name {
+color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    overflow: auto;
+}
+
+.blaster1Name {
+color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    overflow: auto;
+}
+
+.spaceship1Name {
+color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    overflow: auto;
+}
+
+.lightsaber1Description {
+	height: 50%;
+    display: block;
+    position: absolute;
+    overflow: overlay;
+}
+
+.blaster1Description {
+	height: 50%;
+    display: block;
+    position: absolute;
+    overflow: overlay;
+}
+
+.spaceship1Description {
+	height: 50%;
+    display: block;
+    position: absolute;
+    overflow: overlay;
+}
+
+.lightsaber1Price {
+	display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 4%;
+    color: white;
+    font-size: 25px;
+}
+
+.blaster1Price {
+	display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 4%;
+    color: white;
+    font-size: 25px;
+}
+
+.spaceship1Price {
+	display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 4%;
+    color: white;
+    font-size: 25px;
+}
+
+/* PROFILE */
+
+.profileNotConnected {
+	display: block;
+    position: absolute;
+    color: white;
+    padding: 2%;
+}
+
 /* SHOP */
 
 .shopLayout {
@@ -187,21 +274,24 @@ header a:hover {
 }
 
 .lightsabers {
-	background-image:	url("../images/lightsabers.jpg");
+	background-image:	url("../images/shop_lightsaber.jpg");
+    background-position: center;
 	display:			block;
 	height:				100%;
 	border-radius:		50px;
 }
 
 .blasters {
-	background-image:	url("../images/blasters.jpg");
+	background-image:	url("../images/shop_blaster.jpg");
+    background-position: center;
 	display:			block;
 	height:				100%;
 	border-radius:		50px;
 }
 
 .spaceships {
-	background-image:	url("../images/spaceships.jpg");
+	background-image:	url("../images/shop_spaceship.jpg");
+    background-position: center;
 	height:				100%;
 	display:			block;
 	border-radius:		50px;
@@ -237,25 +327,30 @@ header a:hover {
 .product .lightsaber1
 {
 	background-image: url("../images/saber1.jpg");
+	background-position:center;
 }
 
 .product .blaster1
 {
 	background-image: url("../images/blaster1.jpg");
+	background-position:center;
 }
 
 .product .spaceship1
 {
 	background-image: url("../images/spaceship1.jpg");
+	background-position:center;
 }
 
 .product > p
 {
-	position: relative;
-	display: block;
-	width: 480px;
-	height: 50%;
-	margin: 0 auto;
+position: relative;
+    display: block;
+    background-color: #a89a90;
+    width: 480px;
+    padding: 2%;
+    height: 50%;
+    margin: 0 auto;
 }
 
 .productBuy
